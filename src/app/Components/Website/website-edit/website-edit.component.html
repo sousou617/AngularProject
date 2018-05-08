@@ -1,0 +1,76 @@
+
+
+	<nav class="row navbar navbar-dark cb-gray fixed-top">
+		<!--left-side nav-->
+		<div class="col-sm-4 d-none d-sm-block">	
+			<div class="container-fluid">
+				<a class="cb-color-white" routerlink="/website-list"><i class="fas fa-chevron-left cb-color-white"></i></a>
+				<a class="cb-left-padding cb-no-underline" routerlink="/website-list">
+				<b class="cb-color-white">Websites</b></a>
+				<a class="cb-color-white float-right" routerlink="/website-new"><i class="fas fa-plus"></i></a>
+			</div>
+		</div>
+		<!--right-side nav-->
+		<div class="col-sm-8">
+			<div class="container">
+				<a class="cb-color-white cb-no-underline" routerlink="/website-list"><b>Edit Websites</b></a>
+				<a routerlink="/website-list" class="float-right cb-color-white"><i class="fas fa-check"></i></a>
+			</div>
+		</div>
+	</nav>
+
+		<!-- left list -->
+		<div class="row">
+			
+			<div class="col-sm-4 d-none d-sm-block">
+				<div class="container-fluid">
+					<ul class="list-group">
+						<li class="list-group-item d-flex justify-content-between align-items-center">
+							<a routerlink="../Page/page-list">Blogging App</a>
+							<a class="float-right" aside routerlink="/website-edit"><i class="fas fa-cogs"></i></a>
+						</li>
+						<li class="list-group-item">
+							<a routerlink="../Page/page-list">Address Book App</a>
+							<a class="float-right" routerlink="/website-edit"><i class="fas fa-cogs"></i></a>
+						</li>
+						<li class="list-group-item">
+							<a routerlink="../Page/page-list">Script Testing App</a>
+							<a class="float-right" routerlink="/website-edit"><i class="fas fa-cogs"></i></a>
+						</li>
+						<li class="list-group-item">
+							<a routerlink="../Page/page-list">Blogger</a>
+							<a class="float-right" routerlink="/website-edit"><i class="fas fa-cogs"></i></a>
+						</li>
+					</ul>
+				</div>
+			</div>	
+
+			<!-- right form -->
+				<div class="col-sm-8">
+					<div class="container-fluid">
+						<form class="form-group">
+							<div>
+								<label for="website-name"><strong>Website Name</strong></label>
+								<input class="form-control" type="text" name="name" placeholder="Enter your website name">
+							</div>
+						<br>
+							<div class="form-group">
+								<label for="website-name"><strong>Website Description</strong></label>
+								<textarea rows="3" class="form-control" placeholder="Enter your description for this website"></textarea>
+							</div>
+							<div>
+							<a class="btn btn-danger btn-block cb-submit-btn" routerlink="/website-list">Delete</a> 
+							</div>
+						</form>
+					</div>
+				</div>
+		</div>
+	
+	
+		<nav class="navbar navbar-dark cb-gray fixed-bottom">
+			<div class="cb-width">
+			<a class="cb-color-white" routerlink="../User/profile"><i class="fas fa-user float-right"></i></a>
+			</div>
+		</nav>
+
+

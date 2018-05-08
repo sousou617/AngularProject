@@ -1,1 +1,139 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+	padding-top: 70px;
+	padding-bottom: 70px;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #ECECEC;
+  padding-top: 70px;
+  padding-bottom: 70px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.cb-color-white{
+	color: white;
+}
+
+.cb-no-underline a:hover{
+	text-decoration: none;
+}
+
+/*.cb-no-underline{
+	color: white
+}*/
+
+.cb-gray{
+	background-color: #6381CA;
+}
+
+.cb-black{
+	color: black;
+}
+
+
+.cb-left-padding{
+	padding-left: 20px;
+}
+
+.sw-front{
+	z-index: 2;
+}
+
+
+/*.container{
+	text-align: center;*/
+	/*text-decoration: overline;*/
+/*	color: black;
+}*/
+
+button {
+ 	max-width: 300px;
+  margin: 10px auto;
+  padding: 10px 20px;
+  background: #f4f7f8;
+  border-radius: 8px;
+}
+
+
+/*.cb-left-padding{
+	padding-left: 20px;
+}*/
+.list-group: hover{
+
+}
+
+.list-group:hover{
+	text-decoration: none;
+	color: #0B41C1;
+}
+
+a:hover{
+	text-decoration: none;
+	color: #0248EF;
+}
+
+/*.list-group:hover{
+	color: blue;
+}*/
+
+
+
+.cb-absolute-right{
+	position: absolute;
+	right: 15px;
+}
+
+.cb-width{
+	width: 100%;
+	padding-top: 5px;
+}
+
+.cb-align-center{
+	text-align: center;
+}
+
+.cb-vl{
+	border-left: 6px black;
+    height: 500px;
+    position: absolute;
+    left: 50%;
+    margin-left: -3px;
+    top: 0;
+}
+
+.cb-float-right{
+    float: right;
+}
+
+.cb-80-width{
+  width: 80%;
+}
+
+.cb-font-variant{
+  font-variant: small-caps;
+}
+
+.cb-list-style{
+  list-style: none;
+}
+
+.cb-submit-btn{
+	font-size: 20px;
+}
+
+/*.btn {
+	padding: 5px; 
+	margin-bottom: 5px;
+}*/
+
+
+
+/*.text{
+	text-transform: capitalize;
+}*/
+
