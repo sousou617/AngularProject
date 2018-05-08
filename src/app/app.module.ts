@@ -19,6 +19,7 @@ import { WidgetHeaderComponent } from './Components/Widget/widget-edit/widget-he
 import { WidgetImageComponent } from './Components/Widget/widget-edit/widget-image/widget-image.component';
 import { WidgetYoutubeComponent } from './Components/Widget/widget-edit/widget-youtube/widget-youtube.component';
 
+import { Routing } from './app.routing';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { WidgetYoutubeComponent } from './Components/Widget/widget-edit/widget-y
     WidgetYoutubeComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    Routing
   ],
   providers: [],
   bootstrap: [AppComponent]

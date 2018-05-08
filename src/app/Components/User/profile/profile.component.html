@@ -1,10 +1,9 @@
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 <nav class="navbar navbar-dark cb-gray fixed-top">
-        <a class="navbar-brand sw-font-white cb-no-underline" href="profile.html">
+        <a class="navbar-brand sw-font-white cb-no-underline" routerLink="/user/:uid">
           <h4>Profile</h4></a>
-        <a class="sw-font-white" href="profile.html"><i class="fas fa-check"></i></a>
+        <a class="sw-font-white" routerLink="/user/:uid"><i class="fas fa-check"></i></a>
     </nav>
 
 <!-- example <h1 class="float-right">Welcome</h1>-->
@@ -29,8 +28,8 @@
       <input type="name" name="lastname" placeholder="Last name" class="form-control">
     </div>
 
-      <a type="button" class="btn btn-primary btn-block cb-submit-btn" data-toggle="button" routerlink="../Website/website-list">Websites</a>
-      <a type="button" class="btn btn-danger btn-block cb-submit-btn" data-toggle="button" routerlink="/login">Logout</a> 
+      <a type="button" class="btn btn-primary btn-block cb-submit-btn" data-toggle="button" routerLink="/user/:uid/website">Websites</a>
+      <a type="button" class="btn btn-danger btn-block cb-submit-btn" data-toggle="button" routerLink="/login">Logout</a> 
   </form>
 </div>
 
@@ -38,6 +37,6 @@
   <!-- Bottom Navbar -->
     <nav class="navbar navbar-dark cb-gray fixed-bottom">
       <div class="cb-width">
-      <a class="sw-font-white cb-float-right" routerlink="/profile"><i class="fas fa-user"></i></a>
+      <a class="sw-font-white cb-float-right" routerLink="/user/:uid"><i class="fas fa-user"></i></a>
       </div>
     </nav>

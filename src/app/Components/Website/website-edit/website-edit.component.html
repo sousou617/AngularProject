@@ -4,17 +4,17 @@
 		<!--left-side nav-->
 		<div class="col-sm-4 d-none d-sm-block">	
 			<div class="container-fluid">
-				<a class="cb-color-white" routerlink="/website-list"><i class="fas fa-chevron-left cb-color-white"></i></a>
-				<a class="cb-left-padding cb-no-underline" routerlink="/website-list">
+				<a class="cb-color-white" routerLink="/user/:uid/website"><i class="fas fa-chevron-left cb-color-white"></i></a>
+				<a class="cb-left-padding cb-no-underline" routerLink="/user/:uid/website">
 				<b class="cb-color-white">Websites</b></a>
-				<a class="cb-color-white float-right" routerlink="/website-new"><i class="fas fa-plus"></i></a>
+				<a class="cb-color-white float-right" routerLink="/user/:uid/website/new"><i class="fas fa-plus"></i></a>
 			</div>
 		</div>
 		<!--right-side nav-->
 		<div class="col-sm-8">
 			<div class="container">
-				<a class="cb-color-white cb-no-underline" routerlink="/website-list"><b>Edit Websites</b></a>
-				<a routerlink="/website-list" class="float-right cb-color-white"><i class="fas fa-check"></i></a>
+				<a class="cb-color-white cb-no-underline" routerLink="/user/:uid/website"><b>Edit Websites</b></a>
+				<a routerLink="/user/:uid/website" class="float-right cb-color-white"><i class="fas fa-check"></i></a>
 			</div>
 		</div>
 	</nav>
@@ -26,20 +26,20 @@
 				<div class="container-fluid">
 					<ul class="list-group">
 						<li class="list-group-item d-flex justify-content-between align-items-center">
-							<a routerlink="../Page/page-list">Blogging App</a>
-							<a class="float-right" aside routerlink="/website-edit"><i class="fas fa-cogs"></i></a>
+							<a routerLink="/user/:uid/website/:wid/page">Blogging App</a>
+							<a class="float-right" aside routerLink="/user/:uid/website/:wid"><i class="fas fa-cogs"></i></a>
 						</li>
 						<li class="list-group-item">
-							<a routerlink="../Page/page-list">Address Book App</a>
-							<a class="float-right" routerlink="/website-edit"><i class="fas fa-cogs"></i></a>
+							<a routerLink="/user/:uid/website/:wid/page">Address Book App</a>
+							<a class="float-right" routerLink="/user/:uid/website/:wid"><i class="fas fa-cogs"></i></a>
 						</li>
 						<li class="list-group-item">
-							<a routerlink="../Page/page-list">Script Testing App</a>
-							<a class="float-right" routerlink="/website-edit"><i class="fas fa-cogs"></i></a>
+							<a routerLink="/user/:uid/website/:wid/page">Script Testing App</a>
+							<a class="float-right" routerLink="/user/:uid/website/:wid"><i class="fas fa-cogs"></i></a>
 						</li>
 						<li class="list-group-item">
-							<a routerlink="../Page/page-list">Blogger</a>
-							<a class="float-right" routerlink="/website-edit"><i class="fas fa-cogs"></i></a>
+							<a routerlLink="/user/:uid/website/:wid/page">Blogger</a>
+							<a class="float-right" routerLink="/user/:uid/website/:wid"><i class="fas fa-cogs"></i></a>
 						</li>
 					</ul>
 				</div>
@@ -59,7 +59,7 @@
 								<textarea rows="3" class="form-control" placeholder="Enter your description for this website"></textarea>
 							</div>
 							<div>
-							<a class="btn btn-danger btn-block cb-submit-btn" routerlink="/website-list">Delete</a> 
+							<a class="btn btn-danger btn-block cb-submit-btn" routerLink="/user/:uid/website">Delete</a> 
 							</div>
 						</form>
 					</div>
@@ -69,7 +69,7 @@
 	
 		<nav class="navbar navbar-dark cb-gray fixed-bottom">
 			<div class="cb-width">
-			<a class="cb-color-white" routerlink="../User/profile"><i class="fas fa-user float-right"></i></a>
+			<a class="cb-color-white" routerLink="/user/:uid"><i class="fas fa-user float-right"></i></a>
 			</div>
 		</nav>
 

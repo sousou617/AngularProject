@@ -19,13 +19,18 @@ import { WidgetYoutubeComponent } from './Components/Widget/widget-edit/widget-y
 // Import all other components here 
 
 const APP_ROUTES : Routes = [
-  { path : 'App', component : AppComponent},
-  { path : 'test', component: TestComponent},
   { path : 'login' , component: LoginComponent},
   { path : 'register' , component:RegisterComponent },
-  { path : 'user/:userId' , component: ProfileComponent},
-  { path : 'user/:userId/website' , component: WebsiteListComponent}
-
+  { path : 'user/:uid' , component: ProfileComponent},
+  { path : 'user/:uid/website' , component: WebsiteListComponent}
+  { path : 'user/:uid/website/new' , component: WebsiteNewComponent}
+  { path : 'user/:uid/website/:wid' , component: WebsiteEditComponent}
+  { path : 'user/:uid/website/:wid/page', component : PageListComponent},
+  { path : 'user/:uid/website/:wid/page/new', component : PageNewComponent},
+  { path : 'user/:uid/website/:wid/page/:pid', component : PageEditComponent},
+  { path : 'user/:uid/website/:wid/page/:pid/widget', component : WidgetListComponent},
+  { path : 'user/:uid/website/:wid/page/:pid/widget/new', component : WidgetChooserComponent},
+  { path : 'user/:uid/website/:wid/page/:pid/widget/:wgid', component : WidgetEditComponent},
   // so on
 ];
 
