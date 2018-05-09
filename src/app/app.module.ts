@@ -47,9 +47,8 @@ import { WidgetService } from './services/widget.service.client';
   ],
   imports: [
     BrowserModule,
-    Routing, 
-    FormsModule,
-    HttpModule
+    Routing
+  
   ],
   providers: [UserService, WebsiteService, PageService, WidgetService],
   bootstrap: [AppComponent]
