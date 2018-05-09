@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-
 import { AppComponent } from './app.component';
 import { LoginComponent } from './Components/user/login/login.component';
 import { ProfileComponent } from './Components/user/profile/profile.component';
@@ -20,6 +19,12 @@ import { WidgetImageComponent } from './Components/Widget/widget-edit/widget-ima
 import { WidgetYoutubeComponent } from './Components/Widget/widget-edit/widget-youtube/widget-youtube.component';
 
 import { Routing } from './app.routing';
+import { UserService } from './services/user.service.client';
+import { WebsiteService } from './services/website.service.client';
+import { PageService } from './services/page.service.client';
+import { WidgetService } from './services/widget.service.client';
+
+
 
 @NgModule({
   declarations: [
@@ -42,9 +47,11 @@ import { Routing } from './app.routing';
   ],
   imports: [
     BrowserModule,
-    Routing
+    Routing, 
+    FormsModule,
+    HttpModule
   ],
-  providers: [],
+  providers: [UserService, WebsiteService, PageService, WidgetService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
