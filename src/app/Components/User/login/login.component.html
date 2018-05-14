@@ -1,20 +1,48 @@
 
 <div class="container">
 
+<div *ngIf="errorFlag" 
+    class="alert alert-danger">
+    {{errorMsg}}
+</div>
+
     <h1><b>Login</b></h1>
     
-    <form>
+    <form (ngSubmit) = "login()" #f="ngForm">
+
         <div class="form-group">
-            <label for="username"><b>Username</b></label>
-            <input type="text" name="username" placeholder="Username" class="form-control" required="required">
+<!--             <label for="username"><b>Username</b></label> -->
+            <input 
+            type="text"
+            id="username" 
+            name="username" 
+            placeholder="Username" 
+            class="form-control" 
+            required
+            ngModel
+            #username="ngModel"/>
+
         </div>
+        <span class="help-block" *ngIf="!username.valid && username.touched">Please enter username!</span>
+
         <div class="form-group">
-            <label for="username"><b>Password</b></label>
-            <input type="password" name="password" placeholder="Password" class="form-control" required="required">
+<!--             <label for="username"><b>Password</b></label> -->
+            <input 
+            type="password"
+            id="password" 
+            name="password" 
+            placeholder="Password" 
+            class="form-control" 
+            required
+            ngModel
+            #password="ngModel"/>
         </div>
-    
-        <a class="sw-font-white sw-no-underline cb-submit-btn btn btn-primary btn-block btn-large" routerLink="/user/:uid">Login</a>
-        
+         <span class="help-block" *ngIf="!password.valid && password.touched">Please enter password!</span>
+
+        <a 
+        class="sw-font-white sw-no-underline cb-submit-btn btn btn-primary btn-block btn-large" 
+        type="submit" 
+        routerLink="/user/:uid">Login</a>
 
         <a type="button" class="btn btn-success brn-lg btn-block" data-toggle="button" aria-pressed="false" autocomplete="off"><a class="sw-font-white sw-no-underline cb-submit-btn" routerLink="/register">Register</a>
         </a>

@@ -24,11 +24,11 @@ websites = [
     return website;
   }
 
-  findWebsitesByUser(userId) {
+  findWebsiteByUser(userId) {
     var result = [];
-    for (let i = 0; x < this.websites.length; i++) {
+    for (let i = 0; i <this.websites.length; i++) {
       if (this.websites[i].developerId === userId) {
-        return push(this.websites[i]);
+        // return .push(this.websites[i]);
       }
     }
     return result;

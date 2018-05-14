@@ -40,12 +40,12 @@ widgets = [
   }
 
   updateWidget(widgetId, widget) {
-    var oldWeb = this.findWidgetById(widgetId);
-    var index = this.widgets.indexOf(oldWeb);
-    this.widgets[index].size = widget.number;
-    this.widgets[index].text = widget.string;
-    this.widgets[index].url = widget.string;
-    
+    var oldWidget = this.findWidgetById(widgetId);
+    var index = this.widgets.indexOf(oldWidget);
+    // this.widgets[index].size = widget.size;
+    // this.widgets[index].text = widget.string;
+    // this.widgets[index].url = widget.string;
+
   }
 
   deleteWidget(widgetId) {
