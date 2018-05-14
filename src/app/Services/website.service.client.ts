@@ -7,7 +7,7 @@ export class WebsiteService {
 
   constructor() { }
 
-users = [
+websites = [
   { _id: "123", name: "Facebook", developerId: "456", description: "Lorem" },
   { _id: "234", name: "Tweeter",  developerId: "456", description: "Lorem" },
   { _id: "456", name: "Gizmodo",   developerId: "456", description: "Lorem" },
@@ -18,19 +18,40 @@ users = [
 ];
 
   createWebsite(userId, website) {
-    user._id = Math.random();
-    this.users.push(user);
-    return user;
+    website._id = Math.floor(Math.random() * 10000).toString();
+    website.developerId = userId;
+    this.websites.push(website);
+    return website;
   }
 
-  findUserById(userId: string) {
-    for (let x = 0; x < this.users.length; x++) {
-      if (this.users[x]._id === userId) {  return this.users[x]; }
+  findWebsitesByUser(userId) {
+    var result = [];
+    for (let i = 0; x < this.websites.length; i++) {
+      if (this.websites[i].developerId === userId) {
+        return push(this.websites[i]);
+      }
+    }
+    return result;
+  }
+
+  findWebsiteById(websiteId) {
+    for (let i = 0; i <this.websites.length; i++) {
+      if (this.websites[i]._id === websiteId) {
+        return this.websites[i];
+      }
     }
   }
 
-  findWebsiteByUser(userId) { … }
-  findWebsiteById(websiteId) { … }
-  updateWebsite(websiteId, website) { … }
-  deleteWebsite(websiteId) { … }
+  updateWebsite(websiteId, website) {
+    var oldWeb = this.findWebsiteById(websiteId);
+    var index = this.websites.indexOf(oldWeb);
+    this.websites[index].name = website.name;
+    this.websites[index].description = website.description;
+  }
+
+  deleteWebsite(websiteId) {
+    var web = this.findWebsiteById(websiteId);
+    var index = this.websites.indexOf(web);
+    this.websites.splice(index, 1);
+  }
 }

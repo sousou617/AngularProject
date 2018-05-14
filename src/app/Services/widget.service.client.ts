@@ -7,7 +7,7 @@ export class WidgetService {
 
   constructor() { }
 
-users = [
+widgets = [
   { _id: "123", widgetType: "HEADING", pageId: "321", size: 2, text: "GIZMODO"},
   { _id: "234", widgetType: "HEADING", pageId: "321", size: 4, text: "Lorem ipsum"},
   { _id: "345", widgetType: "IMAGE", pageId: "321", width: "100%", url: "http://lorempixel.com/400/200/"},
@@ -19,19 +19,41 @@ users = [
 
 
   createWidget(pageId, widget) {
-    user._id = Math.random();
-    this.users.push(user);
-    return user;
+    pageId._id = Math.floor(Math.random() * 10000).toString();
+    this.widgets.push(pageId);
+    return pageId;
   }
 
-  findUserById(userId: string) {
-    for (let x = 0; x < this.users.length; x++) {
-      if (this.users[x]._id === userId) {  return this.users[x]; }
+  findWidgetsByPageId(pageId) {
+    for (let i = 0; i < this.widgets.length; i++) {
+      if (this.widgets[i]._id === pageId) {  
+        return this.widgets[i]; }
     }
   }
 
-  findWidgetsByPageId(pageId) { … }
-  findWidgetById(widgetId) { … }
-  updateWidget(widgetId, widget) { … }
-  deleteWidget(widgetId) { … }
+  findWidgetById(widgetId) {
+    for (let i = 0; i <this.widgets.length; i++) {
+      if (this.widgets[i]._id === widgetId) {
+        return this.widgets[i];
+      }
+    }
+  }
+
+  updateWidget(widgetId, widget) {
+    var oldWeb = this.findWidgetById(widgetId);
+    var index = this.widgets.indexOf(oldWeb);
+    this.widgets[index].size = widget.number;
+    this.widgets[index].text = widget.string;
+    this.widgets[index].url = widget.string;
+    
+  }
+
+  deleteWidget(widgetId) {
+    var web = this.findWidgetById(widgetId);
+    var index = this.widgets.indexOf(web);
+    this.widgets.splice(index, 1);
+  }
 }
+
+
+    
