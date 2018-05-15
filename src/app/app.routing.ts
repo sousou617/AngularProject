@@ -16,6 +16,7 @@ import { WidgetListComponent } from './Components/Widget/widget-list/widget-list
 import { WidgetHeaderComponent } from './Components/Widget/widget-edit/widget-header/widget-header.component';
 import { WidgetImageComponent } from './Components/Widget/widget-edit/widget-image/widget-image.component';
 import { WidgetYoutubeComponent } from './Components/Widget/widget-edit/widget-youtube/widget-youtube.component';
+
 // Import all other components here 
 
 const APP_ROUTES : Routes = [

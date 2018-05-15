@@ -7,9 +7,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor() { }
+//properties
+userId: String;
+user = {};
+username: String;
+
+  constructor(private userService: userService, private activateRoute: ActivatedRoute) { }
 
   ngOnInit() {
-  }
 
+  	this.activateRoute.params
+  	.subscribe(
+  		(params: any) => {
+  			this.userId = params['userId'];
+  	} 	);
+
+  	this.user = userService.findUserById(this.userId);
+  	this.username = this.user['username'];
+  }
 }

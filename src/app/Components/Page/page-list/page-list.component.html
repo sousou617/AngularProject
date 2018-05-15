@@ -2,7 +2,7 @@
 
 <nav class="navbar navbar-dark fixed-top cb-gray">
 		<a class="cb-color-white" routerLink="/user/:uid/website"><i class="fas fa-chevron-left"></i></a>
-		<div class="cb-left-padding">
+		<div *ngFor="let website of websites" class="cb-left-padding">
 			<a class="cb-color-white cb-no-underline" routerLink="/user/:uid/website/:wid/page"><strong>Pages</strong></a>
 		</div>
 		<a routerLink="/user/:uid/website/:wid/page/new" class="cb-color-white float-right"><i class="fas fa-check"></i></a>

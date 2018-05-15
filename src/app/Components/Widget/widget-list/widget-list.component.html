@@ -11,7 +11,7 @@
 	<div class="container">
 
 		<div>
-			<div class="cb-absolute-right">
+			<div *ngFor="let website of websites" class="cb-absolute-right">
 				<a routerLink="/user/:uid/website/:wid/page/:pid/widget/:wgid"><i class="fas fa-cogs"></i></a>
 				<a class="cb-black" routerLink="#"><i class="fas fa-bars"></i></a>
 			</div>
