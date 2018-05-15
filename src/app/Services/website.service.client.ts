@@ -28,7 +28,7 @@ websites = [
     var result = [];
     for (let i = 0; i <this.websites.length; i++) {
       if (this.websites[i].developerId === userId) {
-        // return .push(this.websites[i]);
+        result.push(this.websites[i]);
       }
     }
     return result;

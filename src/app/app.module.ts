@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
+
 import { LoginComponent } from './Components/user/login/login.component';
 import { ProfileComponent } from './Components/user/profile/profile.component';
 import { RegisterComponent } from './Components/user/register/register.component';
@@ -17,6 +18,7 @@ import { WidgetListComponent } from './Components/Widget/widget-list/widget-list
 import { WidgetHeaderComponent } from './Components/Widget/widget-edit/widget-header/widget-header.component';
 import { WidgetImageComponent } from './Components/Widget/widget-edit/widget-image/widget-image.component';
 import { WidgetYoutubeComponent } from './Components/Widget/widget-edit/widget-youtube/widget-youtube.component';
+
 
 import { Routing } from './app.routing';
 import { UserService } from './services/user.service.client';
@@ -47,6 +49,7 @@ import { WidgetService } from './services/widget.service.client';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     Routing
   
   ],

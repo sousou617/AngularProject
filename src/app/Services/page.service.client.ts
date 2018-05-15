@@ -15,16 +15,20 @@ pages = [
 
 
   createPage(websiteId, page) {
-    websiteId._id = Math.floor(Math.random() * Math.floor(10000)).toString;
-    this.pages.push(websiteId);
-    return websiteId;
+    page._id = Math.floor(Math.random() * Math.floor(10000)).toString;
+    page.websiteId = websiteId
+    this.pages.push(page);
+    return page;
   }
 
   findPageByWebsiteId(websiteId) {
-    for (let x = 0; x < this.pages.length; x++) {
-      if (this.pages[x]._id === websiteId) {  
-        return this.pages[x]; }
+    let result = []
+    for (let i = 0; i < this.pages.length; i++) {
+      if (this.pages[i].websiteId === websiteId) {  
+         result.push(this.pages[i]); 
+       }
     }
+    return result
   }
 
   findPageById(pageId) {
@@ -36,15 +40,15 @@ pages = [
   }
 
   updatePage(pageId, page) {
-    var oldWeb = this.findPageById(pageId);
-    var index = this.pages.indexOf(oldWeb);
-    this.pages[index]._id = pageId.name;
-    this.pages[index].description = pageId.description;
+    var oldPage = this.findPageById(pageId);
+    var index = this.pages.indexOf(oldPage);
+    this.pages[index].description = page.description;
+    this.pages[index].name = page.name;
   }
 
   deletePage(pageId){
-    var page = this.findPageById(pageId);
-    var index = this.pages.indexOf(page);
+    var oldPage = this.findPageById(pageId);
+    const index = this.pages.indexOf(oldPage);
     this.pages.splice(index, 1);
   }
 }

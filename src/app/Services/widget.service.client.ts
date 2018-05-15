@@ -19,17 +19,22 @@ widgets = [
 
 
   createWidget(pageId, widget) {
-    pageId._id = Math.floor(Math.random() * 10000).toString();
-    this.widgets.push(pageId);
-    return pageId;
+    widget._id = Math.floor(Math.random() * 10000).toString();
+    widget.pageId = pageId
+    this.widgets.push(widget);
+    return widget;
   }
 
   findWidgetsByPageId(pageId) {
+    let result = []
     for (let i = 0; i < this.widgets.length; i++) {
-      if (this.widgets[i]._id === pageId) {  
-        return this.widgets[i]; }
+      if (this.widgets[i].pageId === pageId) {  
+         result.push(this.widgets[i]); 
+       }
     }
+    return result
   }
+
 
   findWidgetById(widgetId) {
     for (let i = 0; i <this.widgets.length; i++) {
@@ -42,18 +47,13 @@ widgets = [
   updateWidget(widgetId, widget) {
     var oldWidget = this.findWidgetById(widgetId);
     var index = this.widgets.indexOf(oldWidget);
-    // this.widgets[index].size = widget.size;
-    // this.widgets[index].text = widget.string;
-    // this.widgets[index].url = widget.string;
-
+    this.widgets[index].text = widget.text;
+    this.widgets[index].url = widget.url;
   }
 
   deleteWidget(widgetId) {
-    var web = this.findWidgetById(widgetId);
-    var index = this.widgets.indexOf(web);
+    var oldWidget = this.findWidgetById(widgetId);
+    var index = this.widgets.indexOf(oldWidget);
     this.widgets.splice(index, 1);
   }
 }
-
-
-    
