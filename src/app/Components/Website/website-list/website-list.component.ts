@@ -22,7 +22,7 @@ websites: [{}];
   		(params: any) => {
   			this.userId = params['userId'];
   		});
-  	this.websites = WebsiteService.findWebsitesByUser(userId);
+  	this.websites = WebsiteService.findWebsiteByUser(userId);
   }
 
 }
