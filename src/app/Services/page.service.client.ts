@@ -16,7 +16,7 @@ pages: Page[] = [
 
 
   createPage(websiteId: string, page: Page) {
-    page._id = Math.floor(Math.random() * 10000).toString;
+    page._id = Math.floor(Math.random() * Math.floor(10000)).toString();
     page.websiteId = websiteId
     this.pages.push(page);
     return page;

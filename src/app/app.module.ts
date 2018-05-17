@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './Components/user/login/login.component';
@@ -50,6 +50,7 @@ import { WidgetService } from './services/widget.service.client';
   imports: [
     BrowserModule,
     FormsModule,
+    HttpModule,
     Routing
   
   ],

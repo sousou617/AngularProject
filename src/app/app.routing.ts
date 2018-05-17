@@ -1,3 +1,9 @@
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+
+
 import {Routes, RouterModule} from "@angular/router";
 import {ModuleWithProviders} from "@angular/core";
 import { LoginComponent } from './Components/user/login/login.component';
@@ -22,7 +28,7 @@ import { WidgetYoutubeComponent } from './Components/Widget/widget-edit/widget-y
 const APP_ROUTES : Routes = [
   { path : '' , component: LoginComponent},
   { path : 'login' , component: LoginComponent},
-  { path : 'register' , component:RegisterComponent },
+  { path : 'register' , component:RegisterComponent},
   { path : 'user/:uid' , component: ProfileComponent},
   { path : 'user/:uid/website' , component: WebsiteListComponent},
   { path : 'user/:uid/website/new' , component: WebsiteNewComponent},
