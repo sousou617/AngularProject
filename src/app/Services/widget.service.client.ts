@@ -20,14 +20,14 @@ widgets: Widget[] = [
 ];
 
 
-  createWidget(pageId: String, widget: Widget) {
+  createWidget(pageId: string, widget: Widget) {
     widget._id = Math.floor(Math.random() * 10000).toString();
     widget.pageId = pageId
     this.widgets.push(widget);
     return widget;
   }
 
-  findWidgetsByPageId(pageId: String) {
+  findWidgetsByPageId(pageId: string) {
     let result = []
     for (let i = 0; i < this.widgets.length; i++) {
       if (this.widgets[i].pageId === pageId) {  
@@ -38,7 +38,7 @@ widgets: Widget[] = [
   }
 
 
-  findWidgetById(widgetId: String) {
+  findWidgetById(widgetId: string) {
     for (let i = 0; i <this.widgets.length; i++) {
       if (this.widgets[i]._id === widgetId) {
         return this.widgets[i];
@@ -46,7 +46,7 @@ widgets: Widget[] = [
     }
   }
 
-  updateWidget(widgetId: String, widget: Widget) {
+  updateWidget(widgetId: string, widget: Widget) {
     var oldWidget = this.findWidgetById(widgetId);
     var index = this.widgets.indexOf(oldWidget);
     this.widgets[index].text = widget.text;

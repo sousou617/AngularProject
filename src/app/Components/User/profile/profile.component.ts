@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { NgModule } from '@angular/core';
+import {ActivatedRoute} from "@angular/router";
+
 
 @Component({
   selector: 'app-profile',
@@ -22,7 +25,7 @@ username: String;
   			this.userId = params['userId'];
   	} 	);
 
-  	this.user = userService.findUserById(this.userId);
+  	this.user = this.userService.findUserById(this.userId);
   	this.username = this.user['username'];
   }
 }
