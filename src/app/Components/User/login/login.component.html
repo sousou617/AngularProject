@@ -9,7 +9,6 @@
     <h1><b>Login</b></h1>
     
     <form (ngSubmit) = "login()" #f="ngForm">
-
         <div class="form-group">
 <!--             <label for="username"><b>Username</b></label> -->
             <input 
@@ -20,7 +19,7 @@
             class="form-control" 
             [(ngModel)]="username"
             required
-            #username="ngModel"/>
+            />
 
         </div>
         <span class="help-block" *ngIf="!username.valid && username.touched">Please enter username!</span>

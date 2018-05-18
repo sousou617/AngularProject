@@ -12,8 +12,8 @@ export class LoginComponent implements OnInit {
   @ViewChild('f') loginForm: NgForm;
 
   //properties
-  username: String;
-  password: String;
+  username: string = "";
+  password: string = "";
   errorFlag: boolean;
   errorMsg = 'Invalid username or password!';
 

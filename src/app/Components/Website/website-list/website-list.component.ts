@@ -18,12 +18,12 @@ websites: Website[];
 
   ngOnInit() {
 
-  	this.activatedRoute.params
-  	.subscribe(
-  		(params: any) => {
-  			this.userId = params['userId'];
-  		});
-  	this.websites = this._websiteService.findWebsiteByUser(this.userId);
+  	// this.activatedRoute.params
+  	// .subscribe(
+  	// 	(params: any) => {
+  	// 		this.userId = params['userId'];
+  	// 	});
+  	// this.websites = this._websiteService.findWebsiteByUser(this.userId);
 
   }
 
