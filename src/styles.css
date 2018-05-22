@@ -51,13 +51,13 @@ body {
 /*	color: black;
 }*/
 
-button {
+/* button {
  	max-width: 300px;
   margin: 10px auto;
   padding: 10px 20px;
   background: #f4f7f8;
   border-radius: 8px;
-}
+} */
 
 
 /*.cb-left-padding{
@@ -126,6 +126,10 @@ a:hover{
 
 .cb-submit-btn{
 	font-size: 20px;
+}
+
+.cb-font-white{
+	color: white;
 }
 
 /*.btn {

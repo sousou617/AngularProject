@@ -1,9 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgModule } from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import { ActivatedRoute } from "@angular/router";
 import { Injectable } from '@angular/core';
 import { UserService } from '../../../services/user.service.client';
-import {NgForm} from '@angular/forms';
+import { NgForm } from '@angular/forms';
+import { User } from '../../../models/user.model.client';
 
 @Component({
   selector: 'app-profile',
@@ -12,22 +13,60 @@ import {NgForm} from '@angular/forms';
 })
 export class ProfileComponent implements OnInit {
 
+ @ViewChild('f') profileForm: NgForm;
 
-properties
+//properties
+uid: string;
 userId: string;
-user = {};
+user: User;
 username: string;
+email: string;
+firstName: string;
+lastName: string;
+oldUsername: string;
+usernameTaken: boolean;
+submitSuccess: boolean;
+
   constructor(private userService: UserService, private activateRoute: ActivatedRoute) { }
 
   ngOnInit() {
 
-  	this.activateRoute.params
-  	.subscribe(
+  	this.activateRoute.params.subscribe(
   		(params: any) => {
-  			this.userId = params['userId'];
+  			this.uid = params['uid'];
+        this.user = this.userService.findUserById(this.uid);
+        this.username = this.user.username;
+        this.email = this.user.email;
+        this.firstName = this.user.firstName;
+        this.lastName = this.user.lastName;
   	} 	);
+}
 
+    update() {
   	this.user = this.userService.findUserById(this.userId);
   	this.username = this.user['username'];
+    this.email = this.profileForm.value.email;
+    this.firstName = this.profileForm.value.firstName;
+    this.lastName = this.profileForm.value.lastName;
+
+    // check if the new username was taken
+    const aUser = this.userService.findUserByUsername(this.username);
+    if (aUser) {
+      alert("this username is taken, please try another one.")
+    } else {
+      const updatedUser: User = {
+        _id: this.user._id,
+        username: this.username,
+        password: this.user.password,
+        firstName: this.firstName,
+        lastName: this.lastName,
+        email: this.email,
+      };
+      this.userService.updateUser(this.uid, updatedUser);
+      this.usernameTaken = false;
+      this.submitSuccess = true;
+    }
+
   }
+ 
 }

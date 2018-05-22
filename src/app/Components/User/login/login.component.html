@@ -1,31 +1,27 @@
 
 <div class="container">
 
-<div *ngIf="errorFlag" 
-    class="alert alert-danger">
-    {{errorMsg}}
-</div>
+    <div *ngIf="errorFlag" 
+    class="alert alert-danger">Invalid username or password</div>
 
     <h1><b>Login</b></h1>
-    
-    <form (ngSubmit) = "login()" #f="ngForm">
-        <div class="form-group">
-<!--             <label for="username"><b>Username</b></label> -->
+
+    <form (ngSubmit)="login()" #f="ngForm">
+
+        <div  class="form-group">
             <input 
+            class="form-control" 
             type="text"
-            id="username" 
             name="username" 
             placeholder="Username" 
-            class="form-control" 
-            [(ngModel)]="username"
             required
+            #username="ngModel"
+            ngModel
             />
-
         </div>
         <span class="help-block" *ngIf="!username.valid && username.touched">Please enter username!</span>
 
         <div class="form-group">
-<!--             <label for="username"><b>Password</b></label> -->
             <input 
             type="password"
             id="password" 
@@ -38,13 +34,9 @@
         </div>
          <span class="help-block" *ngIf="!password.valid && password.touched">Please enter password!</span>
 
-        <a 
-        class="sw-font-white sw-no-underline cb-submit-btn btn btn-primary btn-block btn-large" 
-        type="submit" 
-        routerLink="/user/:uid">Login</a>
+        <button class="sw-font-white sw-no-underline cb-submit-btn btn btn-primary btn-block btn-large" [disabled]="f.invalid" type="submit">Login</button>
 
-        <a type="button" class="btn btn-success brn-lg btn-block" data-toggle="button" aria-pressed="false" autocomplete="off"><a class="sw-font-white sw-no-underline cb-submit-btn" routerLink="/register">Register</a>
-        </a>
-      
+        <button type="button" class="btn btn-success btn-lg btn-block sw-font-white sw-no-underline cb-submit-btn" routerLink="/register">Register</button>
+
     </form>
   </div>

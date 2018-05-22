@@ -1,14 +1,20 @@
 
 
 <nav class="navbar navbar-dark cb-gray fixed-top">
-        <a class="navbar-brand sw-font-white cb-no-underline" routerLink="/user/:uid">
-          <h4 class="cb-align">Profile</h4></a>
-        <a class="sw-font-white" routerLink="/user/:uid"><i class="fas fa-check"></i></a>
-    </nav>
+        <a class="navbar-brand cb-font-white cb-no-underline" routerLink="/user/:uid">
+          <h4>Profile</h4></a>
+        <a class="cb-font-white" routerLink="/user/:uid"><i class="fas fa-check"></i></a>
+
+<!--         <button class="cb-button-to-a" type="submit" form="profileForm" [disabled]="f.invalid"></button> -->
+</nav>
 
 <!-- example <h1 class="float-right">Welcome</h1>-->
 
 <div class="container">
+
+    <div *ngIf="usernameTaken" class="alert alert-danger">Username is taken, please try another one.</div>
+  
+    <div *ngIf="submitSuccess" class="alert alert-success"></div>
 
   <form>
     <div class="form-group">
@@ -39,6 +45,7 @@
     </div>
 
       <a type="button" class="btn btn-primary btn-block cb-submit-btn" data-toggle="button" routerLink="/user/:uid/website">Websites</a>
+      
       <a type="button" class="btn btn-danger btn-block cb-submit-btn" data-toggle="button" routerLink="/login">Logout</a> 
   </form>
 </div>
