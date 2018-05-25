@@ -12,7 +12,8 @@ import { Router } from '@angular/router'
 })
 export class RegisterComponent implements OnInit {
 
-	@ViewChild('f') registerForm: NgForm
+	@ViewChild('f') registerForm: NgForm;
+
 	username: string;
 	password: string;
 	verifyPassword: string;
@@ -37,14 +38,19 @@ export class RegisterComponent implements OnInit {
   	  if(user) {
         this.usernameError = true;
       } else {
-        const newUser: User {
-          _id: " ",
+        this.usernameError = false;
+        this.passwordError = false;
+        const newUser: User = {
+          _id: "",
           username: this.username,
           password: this.password,
           firstName: "",
           lastName: "",
-          email: "";
-        }
+          email: ""
+        };
+        this.userService.createUser(newUser);
+        var id: string = this.userService.findUserByUsername(this.username)._id;
+        this.router.navigate(['user', id]);
 
       }
     }

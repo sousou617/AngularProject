@@ -39,6 +39,7 @@ submitSuccess: boolean;
         this.email = this.user.email;
         this.firstName = this.user.firstName;
         this.lastName = this.user.lastName;
+        this.oldUsername = this.user.username;
   	} 	);
 }
 
@@ -50,9 +51,10 @@ submitSuccess: boolean;
     this.lastName = this.profileForm.value.lastName;
 
     // check if the new username was taken
-    const aUser = this.userService.findUserByUsername(this.username);
-    if (aUser) {
-      alert("this username is taken, please try another one.")
+    const aUser: User = this.userService.findUserByUsername(this.username);
+    if (aUser && this.oldUsername !== this.username) {
+      this.usernameTaken = true;
+      this.submitSuccess = false;
     } else {
       const updatedUser: User = {
         _id: this.user._id,

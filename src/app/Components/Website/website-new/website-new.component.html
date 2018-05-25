@@ -4,8 +4,8 @@
 		<div class="col-sm-4 d-none d-sm-block">
 			<!--left nav-->
 			<div class="container-fluid">
-				<a class="cb-color-white" routerLink="/user/:uid/website"><i class="fas fa-chevron-left cb-color-white"></i></a>
-				<a class="cb-left-padding cb-no-underline" routerLink="/user/:uid/website">
+				<a class="cb-color-white" routerLink="/user/{{uid}}/website"><i class="fas fa-chevron-left cb-color-white"></i></a>
+				<a class="cb-left-padding cb-no-underline" routerLink="/user/{{uid}}/website">
 					<b class="cb-color-white">Websites</b></a>
 				<a class="cb-color-white float-right" routerLink="/user/:uid/website/new"><i class="fas fa-plus"></i></a>
 			</div>
@@ -14,7 +14,7 @@
 		<div class="col-sm-8">
 			<div class="container">
 				<a class="cb-color-white cb-no-underline" routerLink="/user/:uid/website"><b>New Website</b></a>
-				<a routerLink="/user/:uid/website" class="float-right cb-color-white cb"><i class="fas fa-check"></i></a>
+				<button type="Submit" class="float-right cb-color-white cb"><i class="fas fa-check"></i></button>
 			</div>
 		</div>
 	</nav>
@@ -46,17 +46,17 @@
 				<!-- Right side form -->
 				<div class="col-sm-8">
 					<div class="container">
-						<form>
+						<form id="websiteForm" (ngSubmit)="create()" #f="ngForm">
 							<div>
 								<label for="website-name"><b>Name</b></label>
-								<input class="form-control" type="text" name="website-name" placeholder="Type your website name"><br>
+								<input class="form-control" type="text" name="website-name" placeholder="Type your website name" required ngModel #name-"ngModel"><br>
 							</div>
 							<!--website description-->
 							<div class="form-group">
 								<label for="website-name"><b>Description</b></label>
-								<textarea rows="3" class="form-control" placeholder="Input your description for this website"></textarea>
+								<textarea rows="3" name="description" class="form-control" placeholder="Input your description for this website" ngModel #description="ngModel"></textarea>
 							</div>
-							<a class="btn btn-success btn-block cb-submit-btn" routerLink="/user/:uid/website">Submit</a> 
+							<a class="btn btn-success btn-block cb-submit-btn" type="Submit">Submit</a> 
 							<a class="btn btn-danger btn-block cb-submit-btn" routerLink="/user/:uid/website">Cancel</a> 
 	
 						</form>

@@ -19,7 +19,7 @@
             ngModel
             />
         </div>
-        <span class="help-block" *ngIf="!username.valid && username.touched">Please enter username!</span>
+        <span class="alert" *ngIf="username.invalid && username.touched">Please enter username!</span>
 
         <div class="form-group">
             <input 
@@ -32,7 +32,7 @@
             ngModel
             #password="ngModel"/>
         </div>
-         <span class="help-block" *ngIf="!password.valid && password.touched">Please enter password!</span>
+         <span class="alert" *ngIf="password.invalid && password.touched">Please enter password!</span>
 
         <button class="sw-font-white sw-no-underline cb-submit-btn btn btn-primary btn-block btn-large" [disabled]="f.invalid" type="submit">Login</button>
 

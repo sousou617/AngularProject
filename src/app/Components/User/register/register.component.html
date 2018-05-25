@@ -1,28 +1,52 @@
 
 
 <div class="container">
+  <h1><b>Register</b></h1>
+
     <div *ngIf="usernameError"
        class="alert alert-danger" >
-    Username is taken!
+    Username is already taken!
     </div>
+
     <div *ngIf="passwordError"
        class="alert alert-danger" >
     Passwords do not match!
     </div>
-    <h1><b>Register</b></h1>
+    
     <form (ngSubmit)="register()" #f="ngForm">
         <div class="form-group">
-          <input type="text" name="username" placeholder="Username" class="form-control" required ngModel #username="ngModel">
+          <input 
+          type="text" 
+          name="username" 
+          placeholder="Username" 
+          class="form-control" 
+          required 
+          ngModel 
+          #username="ngModel">
         </div>
         <span class="alert" *ngIf="username.invalid && username.touched">Please enter username!</span>
 
         <div class="form-group">
-          <input type="password" name="password" placeholder="Password" class="form-control" required ngModel #password="ngModel">
+          <input 
+          type="password" 
+          name="password" 
+          placeholder="Password(case sensitive)" 
+          class="form-control" 
+          required 
+          ngModel 
+          #password="ngModel">
         </div>
         <span class="alert" *ngIf="password.invalid && password.touched">Please enter password!</span>
 
         <div class="form-group">
-          <input type="password" name="VerifyPassword" placeholder="Verify Password" class="form-control" required ngModel #verifyPassword="ngModel">
+          <input 
+          type="password" 
+          name="VerifyPassword" 
+          placeholder="Verify Password" 
+          class="form-control" 
+          required 
+          ngModel 
+          #verifyPassword="ngModel">
         </div>
         <span class="alert" *ngIf="verifyPassword.invalid && verifyPassword.touched">Please verify password!</span>
    

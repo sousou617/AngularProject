@@ -25,7 +25,7 @@ import { WidgetYoutubeComponent } from './Components/Widget/widget-edit/widget-y
 
 
 
-// Import all other components here 
+// // Import all other components here 
 
 const APP_ROUTES : Routes = [
   { path : '' , component: LoginComponent},
@@ -41,7 +41,7 @@ const APP_ROUTES : Routes = [
   { path : 'user/:uid/website/:wid/page/:pid/widget', component : WidgetListComponent},
   { path : 'user/:uid/website/:wid/page/:pid/widget/new', component : WidgetChooserComponent},
   { path : 'user/:uid/website/:wid/page/:pid/widget/:wgid', component : WidgetEditComponent},
-  // so on
+//   // so on
 ];
 
 // Export the routes as module providers

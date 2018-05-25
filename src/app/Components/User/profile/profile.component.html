@@ -3,9 +3,7 @@
 <nav class="navbar navbar-dark cb-gray fixed-top">
         <a class="navbar-brand cb-font-white cb-no-underline" routerLink="/user/:uid">
           <h4>Profile</h4></a>
-        <a class="cb-font-white" routerLink="/user/:uid"><i class="fas fa-check"></i></a>
-
-<!--         <button class="cb-button-to-a" type="submit" form="profileForm" [disabled]="f.invalid"></button> -->
+        <button class="cb-font-white" type="submit" form="profileForm" [disabled]="f.invalid"><i class="fas fa-check"></i></button>
 </nav>
 
 <!-- example <h1 class="float-right">Welcome</h1>-->
@@ -14,16 +12,18 @@
 
     <div *ngIf="usernameTaken" class="alert alert-danger">Username is taken, please try another one.</div>
   
-    <div *ngIf="submitSuccess" class="alert alert-success"></div>
+    <div *ngIf="submitSuccess" class="alert alert-success">Update successful!</div>
 
-  <form>
+  <form (ngSubmit)="update()" id="profileForm" #f="ngForm">
     <div class="form-group">
       <label for="username"><b>Username</b></label>
-      <input [(ngModel)]="username"
+      <input 
       type="text" 
       id="username" 
       required
-      name="name" 
+      ngModel="{{user.username}}"
+      #username="ngModel"
+      name="username" 
       placeholder="Username" 
       class="form-control">
     </div>
@@ -33,20 +33,34 @@
       type="email" 
       name="email" 
       placeholder="Email" 
-      class="form-control">
+      class="form-control"
+      ngModel="{{user.email}}"
+      #email="ngModel">
     </div>
     <div class="form-group">
       <label for="firstname"><b>First Name</b></label>
-      <input type="name" name="Firstname" placeholder="First name" class="form-control">
+      <input 
+      type="name" 
+      name="firstName" 
+      placeholder="First name" 
+      class="form-control"
+      ngModel="{{user.firstName}}"
+      #firstName="ngModel">
     </div>
     <div class="form-group">
       <label type="name" class="lastname"><b>Last Name</b></label>
-      <input type="name" name="lastname" placeholder="Last name" class="form-control">
+      <input 
+      type="name" 
+      name="lastName" 
+      placeholder="Last name" 
+      class="form-control"
+      ngModel="{{user.lastName}}"
+      #lastName="ngModel">
     </div>
 
-      <a type="button" class="btn btn-primary btn-block cb-submit-btn" data-toggle="button" routerLink="/user/:uid/website">Websites</a>
+      <button type="button" class="btn btn-primary btn-block cb-submit-btn" data-toggle="button" routerLink="/user/{{uid}}/website">Websites</button>
       
-      <a type="button" class="btn btn-danger btn-block cb-submit-btn" data-toggle="button" routerLink="/login">Logout</a> 
+      <button type="button" class="btn btn-danger btn-block cb-submit-btn" data-toggle="button" routerLink="/login">Logout</button>
   </form>
 </div>
 
