@@ -1,43 +1,48 @@
 
 
 	<nav class="navbar navbar-dark fixed-top cb-gray">
-		<a class="cb-color-white" routerLink="/user/:uid/website/:wid/page/:pid/widget"><i class="fas fa-chevron-left"></i></a>
+		<a class="cb-color-white" routerLink="/user/{{uid}}/website/{{wid}}/page/{{pid}}/widget"><i class="fas fa-chevron-left"></i></a>
 		<div class="cb-left-padding">
 			<a class="cb-color-white cb-no-underline cb-left-padding" routerLink="/user/:uid/website/:wid/page/:pid/widget"><strong>Widget Image</strong></a>
 		</div>
-		<a routerLink="/user/:uid" class="cb-color-white float-right"><i class="fas fa-check"></i></a>
+		<button [disabled]="f.invalid" type="submit" form="widgetForm" class="cb-color-white float-right"><i class="fas fa-check"></i></button>
 	</nav>
 
-	<form class="container">
-
+	<div class="container">
+	<form id="widgetForm" (ngSubmit)="update()" #f="ngForm">
 		<!--widget name-->
 		<div class="form-group">
 			<label for="name"><b>Name</b></label>
-			<input type="text" name="name" class="form-control" placeholder="Name">
+			<input type="text" name="name" ngModel="{{widget.name}}" #name="ngModel"  class="form-control" placeholder="Enter your widget name">
 		</div>
 		<div class="form-group">
 			<label for="text"><b>Text</b></label>
-			<input type="text" name="text" class="form-control" placeholder="Add Text Here...">
+			<input type="text" name="text" ngModel="{{widget.text}}" #text="ngModel"  class="form-control" placeholder="Add text here...">
 		</div>
 		<div class="form-group">
 			<label for="URL"><b>URL</b></label>
-			<input type="text" name="URL" class="form-control" placeholder="https://www.image.com">
+			<input class="form-control" required ngModel="{{widget.url}}" #url="ngModel" type="text" name="url" placeholder="https://www.google.com">
 		</div>
+		<div class="alert alert-danger" *ngIf="url.invalid && url.touched">Url can't be empty!</div>
+
 		<div class="form-group">
 			<label for="Width"><b>Width</b></label>
-			<input type="text" name="Width" class="form-control" placeholder="100%">
+			<input type="text" name="width" required ngModel="{{widget.width}}" #width="ngModel" class="form-control" placeholder="100%">
 		</div>
-		
+		<div class="alert alert-danger" *ngIf="width.invalid && width.touched">Width can't be empty!</div>
+
 		<!--Upload-->
 		<div class="form-group">
 			<label for="Upload"><b>Upload</b></label>
-			<input type="file" name="Upload" class="form-control">
+			<input type="file" name="Upload" class="form-control" placeholder="100%">
 		</div>
 		<!-- Submit buttons -->
-			<a class="btn btn-primary btn-block cb-submit-btn" routerLink="#">Upload</a>
-			<a class="btn btn-danger btn-block cb-submit-btn" routerLink="/user/:uid/website/:wid/page/:pid/widget">Delete</a> 
+
+			<button type="submit" [disabled]="f.invalid" class="btn btn-primary btn-block cb-submit-btn">Submit</button>
+			<button type="button" class="btn btn-danger btn-block cb-submit-btn" (click)="remove()">Delete</button> 
 	
-	</form>		
+	</form>	
+	</div>	
 	<!-- Bottom Navbar -->
 	<nav class="navbar navbar-dark cb-gray fixed-bottom">
 		<div class="cb-width">

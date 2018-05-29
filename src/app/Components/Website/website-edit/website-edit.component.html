@@ -1,14 +1,14 @@
 
 
-	<nav class="row navbar navbar-dark cb-gray fixed-top">
-		<!--left-side nav-->
+	 <nav class="row navbar navbar-dark cb-gray fixed-top">
+<!--		left-side nav -->
 		<div class="col-sm-4 d-none d-sm-block">	
 			<div class="container-fluid">
 				<a class="cb-color-white" routerLink="/user/{{uid}}/website"><i class="fas fa-chevron-left cb-color-white"></i></a>
 				<a class="cb-color-white cb-left-padding cb-no-underline" routerLink="/user/{{uid}}/website"><b>Websites</b></a>
-				<a class="cb-color-white float-right" routerLink="/user/{{uid}}/website/new"><i class="fas fa-plus"></i></a>
+				<a class="cb-color-white float-right" routerLink="/user/{{uid}}/website/new"><i class="fa fa-plus"></i></a>
 			</div>
-		</div>
+		</div> 
 		<!--right-side nav-->
 		<div class="col-sm-8">
 			<div class="container">
@@ -48,7 +48,7 @@
 							</div>
 							<div>
 							<button (click)="delete()" type="button" class="btn btn-danger btn-block cb-submit-btn">Delete</button> 
-							<button type="submit" class="btn btn-primary float-right">Update</button>
+							<button type="submit"  class="btn btn-primary btn-block cb-submit-btn">Update</button>
 							</div>
 						</form>
 					</div>

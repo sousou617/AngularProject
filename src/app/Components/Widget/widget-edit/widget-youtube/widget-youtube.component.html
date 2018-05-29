@@ -1,41 +1,39 @@
 
 	<nav class="navbar navbar-dark fixed-top cb-gray">
-		<a routerLink="/user/:uid/website/:wid/page/:pid/widget"><i class="fas fa-chevron-left cb-color-white"></i></a>
+		<a routerLink="/user/{{uid}}/website/{{wid}}/page/{{pid}}/widget"><i class="fas fa-chevron-left cb-color-white"></i></a>
 		<div class="cb-left-padding">
-			<a class="cb-no-underline" routerLink="/user/:uid/website/:wid/page/:pid/widget/:wgid"><b class="cb-color-white cb-left-padding">Widget Edit</b></a>
+			<a class="cb-no-underline" routerLink="user/{{uid}}/website/{{wid}}/page/{{pid}}/widget/new"><b class="cb-color-white cb-left-padding">Edit Widget</b></a>
 		</div>
-		<a routerLink="/user/:uid/website/:wid/page/:pid/widget/new" class="cb-color-white float-right"><i class="fas fa-check"></i></a>
+		<button [disabled]="f.invalid" type="submit" form="widgetForm" class="cb-color-white float-right"><i class="fas fa-check"></i></button>
 	</nav>
-	<form class="container">
+	<form class="container" id="widgetForm" (ngSubmit)="update()" #f="ngForm">
 		<!--Youtube form-->
 		<div class="form-group">
 			<label for="name"><b>Name</b></label>
-			<input type="text" name="name" class="form-control" placeholder="Name">
+			<input type="text" name="name" class="form-control" ngModel="{{widget.name}}" #name="ngModel" placeholder="Enter your widget name...">
 		</div>
 		<div class="form-group">
 			<label for="text"><b>Text</b></label>
-			<input type="text" name="text" class="form-control" placeholder="Add Text Here...">
+			<input type="text" name="text" class="form-control" ngModel="{{widget.text}}" #text="ngModel" placeholder="Enter your widget text...">
 		</div>
 		<div class="form-group">
 			<label for="URL"><b>URL</b></label>
-			<input type="text" name="URL" class="form-control" placeholder="https://www.Youtube.com">
+			<input type="text" name="URL" class="form-control" required ngModel="{{widget.url}}" #url="ngModel" placeholder="https://www.Youtube.com">
 		</div>
+		<div class="alert alert-danger" *ngIf="url.invalid && url.touched">Url can't be empty!</div>
+
 		<div class="form-group">
 			<label for="Width"><b>Width</b></label>
-			<input type="text" name="Width" class="form-control" placeholder="100%">
+			<input type="text" name="width" class="form-control" required ngModel="{{widget.width}}" #width="ngModel" placeholder="100%">
 		</div>
+		<div class="alert alert-danger" *ngIf="width.invalid && width.touched">Width can't be empty!</div>
 		
-			<a class="btn btn-danger btn-block cb-submit-btn" routerLink="/user/:uid/website/:wid/page/:pid/widget">Delete</a> 
-	
+		<button type="submit" [disabled]="f.invalid" class="btn btn-primary btn-block">Submit</button>
+		<button class="btn btn-danger btn-block cb-submit-btn" type="button" (click)="remove()">Delete</button> 
 	</form>		
-	<nav class="navbar navbar-dark sw-gray fixed-bottom">
-		<div class="sw-width">
-			<a routerLink="/user/:uid" class="sw-font-white float-right"><i class="fas fa-user"></i></a>
-		</div>
-	</nav>
 
 	<nav class="navbar navbar-dark cb-gray fixed-bottom">
 		<div class="cb-width">
-			<a routerLink="/user/:uid/website/:wid/page/:pid/widget" class="float-right cb-color-white"><i class="fas fa-user"></i></a>
+			<a routerLink="/user/{{uid}}" class="float-right cb-color-white"><i class="fas fa-user"></i></a>
 		</div>
 	</nav>
