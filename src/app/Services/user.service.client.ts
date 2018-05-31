@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
 import { User } from '../models/user.model.client';
+import {Http, Response} from '@angular/http';
+import 'rxjs/Rx';
+import {environment} from '../../environments/environment';
 
 
 // injecting service into module
@@ -7,7 +10,7 @@ import { User } from '../models/user.model.client';
 
 export class UserService {
 
-  constructor() { }
+  constructor(private _http: Http) { }
 
 users: User[] = [
 	{_id: "123", username: "alice", password: "alice", firstName: "Alice", lastName: "Wonder", email: "alice@gmail.com"},

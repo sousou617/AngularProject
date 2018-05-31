@@ -63,13 +63,16 @@ body {
 /*.cb-left-padding{
 	padding-left: 20px;
 }*/
-.list-group: hover{
-
+.list-group-item:hover{
+	color: #0B41C1;
+	text-decoration: none;
+	text-align: left;
 }
 
 .list-group:hover{
 	text-decoration: none;
 	color: #0B41C1;
+
 }
 
 a:hover{
@@ -77,9 +80,15 @@ a:hover{
 	color: #0248EF;
 }
 
-/*.list-group:hover{
-	color: blue;
-}*/
+.cb-submit-btn{
+	font-size: 20px;
+}
+
+.cb-btn-t {
+	background-color: transparent;
+	color: #0B41C1;
+}
+
 
 .cb-celtics-grn{
 	color: #4cbb17;
@@ -124,9 +133,6 @@ a:hover{
   list-style: none;
 }
 
-.cb-submit-btn{
-	font-size: 20px;
-}
 
 .cb-font-white{
 	color: white;

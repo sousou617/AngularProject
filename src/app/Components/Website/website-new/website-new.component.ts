@@ -25,7 +25,7 @@ description: string;
   	this.activatedRoute.params.subscribe(params => {
   		this.uid = params['uid'];
   		this.websites = this.websiteService.findWebsiteByUser(this.uid);
-  	})
+  	});
   }
 
   create() {

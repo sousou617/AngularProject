@@ -27,6 +27,7 @@ widgets: Widget[] = [
     return widget;
   }
 
+// retrieves the widgets in local widgets array whose 
   findWidgetsByPageId(pageId: string) {
     var result = [];
     for (var i = 0; i < this.widgets.length; i++) {
@@ -34,6 +35,7 @@ widgets: Widget[] = [
          result.push(this.widgets[i]); 
        }
     }
+    return result;
   }
 
 

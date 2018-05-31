@@ -1,43 +1,31 @@
 
 
 	<nav class="row navbar navbar-dark cb-gray fixed-top">
+			<!--left nav-->		
 		<div class="col-sm-4 d-none d-sm-block">
-			<!--left nav-->
 			<div class="container-fluid">
 				<a class="cb-color-white" routerLink="/user/{{uid}}/website"><i class="fas fa-chevron-left cb-color-white"></i></a>
-				<a class="cb-left-padding cb-no-underline" routerLink="/user/{{uid}}/website">
-					<b class="cb-color-white">Websites</b></a>
-				<a class="cb-color-white float-right" routerLink="/user/:uid/website/new"><i class="fas fa-plus"></i></a>
+				<a class="cb-left-padding cb-no-underline" routerLink="/user/{{uid}}/website" class="cb-color-white"><b>Websites</b></a>
+				<a class="cb-color-white float-right" routerLink="/user/{{uid}}/website/new"><i class="fas fa-plus"></i></a>
 			</div>
 		</div>
 			<!--right nav-->
 		<div class="col-sm-8">
 			<div class="container">
-				<a class="cb-color-white cb-no-underline" routerLink="/user/:uid/website"><b>New Website</b></a>
-				<button type="Submit" class="float-right cb-color-white cb"><i class="fas fa-check"></i></button>
+				<a class="cb-color-white cb-no-underline" routerLink="/user/{{uid}}/website/new"><b>New Website</b></a>
+				<button type="submit" class="float-right cb-color-white btn" form="websiteForm" [disabled]="f.invalid"><i class="fas fa-check"></i></button>
 			</div>
 		</div>
 	</nav>
 
 	<div class="row">
+		<!-- left website list -->
 			<div class="col-sm-4 d-none d-sm-block">
 				<div class="container-fluid">
 					<ul class="list-group">
-						<li class="list-group-item d-flex justify-content-between align-items-center">
-							<a routerLink="/user/:uid/website/:wid/page">MSIMBO</a>
-							<a class="float-right" routerLink="/user/:uid/website/:wid"><i class="fas fa-cogs"></i></a>
-						</li>
-						<li class="list-group-item">
-							<a routerLink="/user/:uid/website/:wid/page">Address Book</a>
-							<a class="float-right" routerLink="/user/:uid/website/:wid"><i class="fas fa-cogs"></i></a>
-						</li>
-						<li class="list-group-item">
-							<a routerLink="/user/:uid/website/:wid/page">Sai Brown</a>
-							<a class="float-right" routerLink="/user/:uid/website/:wid"><i class="fas fa-cogs"></i></a>
-						</li>
-						<li class="list-group-item">
-							<a routerLink="/user/:uid/website/:wid/page">Sublime Instruction</a>
-							<a class="float-right" routerLink="/user/:uid/website/:wid"><i class="fas fa-cogs"></i></a>
+						<li *ngFor="let website of websites" class="list-group-item d-flex justify-content-between align-items-center">
+							<a routerLink="/user/{{uid}}/website/{{website._id}}/page">{{website.name}}</a>
+							<a class="float-right" routerLink="/user/{{uid}}/website/{{website._id}}"><i class="fas fa-cogs"></i></a>
 						</li>
 					</ul>
 				</div>
@@ -47,18 +35,19 @@
 				<div class="col-sm-8">
 					<div class="container">
 						<form id="websiteForm" (ngSubmit)="create()" #f="ngForm">
-							<div>
-								<label for="website-name"><b>Name</b></label>
-								<input class="form-control" type="text" name="website-name" placeholder="Type your website name" required ngModel #name-"ngModel"><br>
+							<div class="form-group">
+								<label for="name"><b>Name</b></label>
+								<input class="form-control" type="text" name="name" placeholder="Enter your website name" required ngModel #name="ngModel">
+								<br>
 							</div>
+							<div class="alert alert-warning" *ngIf="name.invalid && name.touched">Name cannot be empty</div>
 							<!--website description-->
 							<div class="form-group">
-								<label for="website-name"><b>Description</b></label>
+								<label><b>Description</b></label>
 								<textarea rows="3" name="description" class="form-control" placeholder="Input your description for this website" ngModel #description="ngModel"></textarea>
 							</div>
-							<a class="btn btn-success btn-block cb-submit-btn" type="Submit">Submit</a> 
-							<a class="btn btn-danger btn-block cb-submit-btn" routerLink="/user/:uid/website">Cancel</a> 
-	
+							<button [disabled]="f.invalid" class="btn btn-success btn-block cb-submit-btn" type="submit">Submit</button> 
+							<a class="btn btn-danger btn-block cb-submit-btn" routerLink="/user/{{uid}}/website">Cancel</a> 
 						</form>
 					</div>
 				</div>

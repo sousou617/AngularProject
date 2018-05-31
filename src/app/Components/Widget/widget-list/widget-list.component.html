@@ -1,66 +1,56 @@
 
 
-		<nav class="navbar navbar-dark fixed-top cb-gray">
-		<a routerLink="/user/:uid/website/:wid/page" class="cb-color-white"><i class="fas fa-chevron-left"></i></a>
+	<nav class="navbar navbar-dark fixed-top cb-gray">
+			<a routerLink="/user/{{uid}}/website/{{wid}}/page" class="cb-color-white"><i class="fas fa-chevron-left"></i></a>
 		<div class="cb-80-width">
-			<a class="cb-color-white float-left" routerLink="/user/:uid/website/:wid/page/:pid/widget"><b>Widgets</b></a>
+			<a class="cb-color-white float-left" routerLink="/user/{{uid}}/website/{{wid}}/page/{{pid}}/widget"><b>Widgets</b></a>
 		</div>
-		<a routerLink="/user/:uid/website/:wid/page/:pid/widget/new" class="cb-color-white float-right"><i class="fas fa-plus"></i></a>
+			<a routerLink="/user/{{uid}}/website/{{wid}}/page/{{pid}}/widget/new" class="cb-color-white float-right"><i class="fas fa-plus"></i></a>
 	</nav>
 	<!-- Widgets -->
 	<div class="container">
-
-		<div>
-			<div *ngFor="let website of websites" class="cb-absolute-right">
-				<a routerLink="/user/:uid/website/:wid/page/:pid/widget/:wgid"><i class="fas fa-cogs"></i></a>
-				<a class="cb-black" routerLink="#"><i class="fas fa-bars"></i></a>
-			</div>
-			<h1><b>Welcome to the World of Widgets</b></h1>
-			<h2 class="cb-celtics-grn">Let's go, Celtics!</h2>
-		</div>
-	
-		<div>
+		<div *ngFor="let widget of widgets">
+			<!-- icons for each widget -->
 			<div class="cb-absolute-right">
-				<a routerLink="/user/:uid/website/:wid/page/:pid/widget/:wgid"><i class="fas fa-cogs"></i></a>
+				<a routerLink="/user/{{uid}}/website/{{wid}}/page/{{pid}}/widget/{{widget._id}}"><i class="fas fa-cogs"></i></a>
 				<a class="cb-black" routerLink="#"><i class="fas fa-bars"></i></a>
 			</div>
-			<h5 class="cb-font-variant">MSIMBO bootcamper is reflecting on the uniqueness of the city of Boston.</h5>
-		</div>
-	
-		<div>
-			<div class="cb-absolute-right">
-				<a routerLink="widget-image.html"><i class="fas fa-cogs"></i></a>
-				<a class="cb-black" routerLink="#"><i class="fas fa-bars"></i></a>
-			</div>
-				<img width="100%" class="d-block" alt="Boston in the Spring." src="https://images.fineartamerica.com/images-medium-large-5/spring-into-boston-juergen-roth.jpg">
-<!-- 				<img width="50%" class=".d-none .d-sm-block .d-md-none" alt="Boston in the Spring." src="https://images.fineartamerica.com/images-medium-large-5/spring-into-boston-juergen-roth.jpg"> -->
-
-		</div>
-	
-		<div>
-			<div class="cb-absolute-right">
-				<a routerLink="/user/:uid/website/:wid/page/:pid/widget/:wgid"><i class="fas fa-cogs"></i></a>
-				<a class="cb-black" routerLink="#"><i class="fas fa-bars"></i></a>
-			</div>
-		<h5>Watch the video for more Info</h5><br>
-		</div>
-	<!-- Youtube Video -->
-		<div>
-			<div class="cb-absolute-right cb-font-variant sw-front">
-				<a routerLink="widget-youtube.html"><i class="fas fa-cogs"></i></a>
-				<a class="cb-black" routerLink="#"><i class="fas fa-bars"></i></a>
-			</div>
-			<div class="embed-responsive embed-responsive-16by9">
-				<iframe width="640" height="360" src="https://www.youtube.com/embed/BJ9-YlN7XO0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-			</div>
-		</div>
-	
-		<div>
-			<div class="cb-absolute-right">
-				<a routerLink="/user/:uid/website/:wid/page/:pid/widget/:wgid"><i class="fas fa-cogs"></i></a>
-				<a class="cb-black" routerLink="#"><i class="fas fa-bars"></i></a>
-			</div>
-			<p class="cb-font-variant"> At the end of the day, you are solely responsible for your success and your failure. And the sooner you realize that, you accept that, and integrate that into your work ethic, you will start being successful. As long as you blame others for the reason you aren't where you want to be, you will always be a failure. -Erin Cummings</p>
+			<!-- content of each widget -->
+			<div [ngSwitch]="widget.widgetType">
+				<!-- HEADING -->
+				<div *ngSwitchCase="'HEADING'">
+					<div [ngSwitch]="widget.size">
+						<div *ngSwitchCase="1">
+							<h1>{{widget.text}}</h1>
+						</div>
+						<div *ngSwitchCase="2">
+							<h2>{{widget.text}}</h2>
+						</div>
+						<div *ngSwitchCase="3">
+							<h3>{{widget.text}}</h3>
+						</div>
+						<div *ngSwitchCase="4">
+							<h4>{{widget.text}}</h4>
+						</div>
+						<div *ngSwitchCase="5">
+							<h5>{{widget.text}}</h5>
+						</div>
+						<div *ngSwitchCase="6">
+							<h6>{{widget.text}}</h6>
+						</div>
+					</div>	
+				</div>
+				<!-- IMAGE -->
+				<div *ngSwitchCase="IMAGE">
+					<img [src]="widget.url" [style.width]="widget.width">
+				</div>
+				<!-- YOUTUBE -->
+				<div *ngSwitchCase="YOUTUBE">
+					<div class="embed-responsive embed-responsive-16by9">
+						<iframe [src]="this.getYoutubeUrl(widget.url)" [style.width]="widget.width" frameborder="0" allowfullscreen></iframe>
+					</div>
+				</div>
+			</div>	
 		</div>
 	</div>
 	<!-- footer -->
@@ -68,7 +58,7 @@
 			<div class="cb-width">
 			<a class="btn btn-success btn-lg" href="#">Publish</a>
 			<a class="btn btn-warning btn-lg" href="#">Preview</a>
-			<a routerLink="/user/:uid" class="float-right cb-color-white"><i class="fas fa-user"></i></a>
+	<a routerLink="/user/{{uid}}" class="float-right cb-color-white"><i class="fas fa-user"></i></a>
 			</div>
 		</nav>
 		

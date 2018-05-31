@@ -27,9 +27,9 @@ wid: string;
   ngOnInit() { 
     this.ActivatedRoute.params.subscribe(params => {
   	  this.uid = params['uid'];
-  	  this.uid = params['wid'];
+  	  this.wid = params['wid'];
   	  this.websites = this.websiteService.findWebsiteByUser(this.uid);
-  	  this.website = this.websiteService.findWebsiteById(this.uid);
+  	  this.website = this.websiteService.findWebsiteById(this.wid);
       this.name = this.website.name;
       this.description = this.website.description;
   })

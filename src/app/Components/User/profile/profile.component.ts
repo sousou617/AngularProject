@@ -31,8 +31,7 @@ submitSuccess: boolean;
 
   ngOnInit() {
 
-  	this.activateRoute.params.subscribe(
-  		(params: any) => {
+  	this.activateRoute.params.subscribe(params => {
   			this.uid = params['uid'];
         this.user = this.userService.findUserById(this.uid);
         this.username = this.user.username;
@@ -40,12 +39,12 @@ submitSuccess: boolean;
         this.firstName = this.user.firstName;
         this.lastName = this.user.lastName;
         this.oldUsername = this.user.username;
-  	} 	);
+  	});
 }
 
     update() {
-  	this.user = this.userService.findUserById(this.userId);
-  	this.username = this.user['username'];
+  	// this.user = this.userService.findUserById(this.userId);
+  	this.username = this.profileForm.value.username;
     this.email = this.profileForm.value.email;
     this.firstName = this.profileForm.value.firstName;
     this.lastName = this.profileForm.value.lastName;
@@ -67,6 +66,7 @@ submitSuccess: boolean;
       this.userService.updateUser(this.uid, updatedUser);
       this.usernameTaken = false;
       this.submitSuccess = true;
+      // console.log(this.userService.users);
     }
 
   }
