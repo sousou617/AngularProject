@@ -24,11 +24,12 @@ size: number;
 
 
 
-  constructor(private activatedRoute: ActivatedRoute, private viewChild: ViewChild, private widgetService: WidgetService, private router: Router) { }
+  constructor(private activatedRoute: ActivatedRoute, private widgetService: WidgetService, private router: Router) { }
 
 
   ngOnInit() {
   	this.activatedRoute.params.subscribe(params => {
+  		// console.log("hello")
   		this.uid = params['uid'];
   		this.wid = params['wid'];
   		this.pid = params['pid'];
@@ -52,11 +53,11 @@ update(){
 	}
 
 	this.widgetService.updateWidget(this.wgid, updatedWidget);
-	this.router.navigate(['user', this.uid, 'website', this.wid, 'page', this.pid, 'wiget']);
+	this.router.navigate(['user', this.uid, 'website', this.wid, 'page', this.pid, 'widget']);
 }
 
 remove(){
 	this.widgetService.deleteWidget(this.wgid);
-	this.router.navigate(['user', this.uid, 'website', this.wid, 'page', this.pid, 'wiget']);
+	this.router.navigate(['user', this.uid, 'website', this.wid, 'page', this.pid, 'widget']);
 }
 }

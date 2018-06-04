@@ -29,13 +29,13 @@
 
 		<div>
 			<button [disabled]="f.invalid" type="submit" class= "btn btn-primary btn-block">Submit</button>
-			<button class="btn btn-danger btn-block cb-submit-btn" (click)="remove()">Delete</button>
+			<button type="button" class="btn btn-danger btn-block cb-submit-btn" (click)="remove()">Delete</button>
 		</div>
 	</form>
 	</div>	
 	<nav class="navbar navbar-dark cb-gray fixed-bottom">
 		<div class="cb-width">
-			<a routerLink="/user/:uid" class="float-right cb-color-white"><i class="fas fa-user"></i></a>
+			<a routerLink="/user/{{uid}}" class="float-right cb-color-white"><i class="fas fa-user"></i></a>
 		</div>
 	</nav>
 

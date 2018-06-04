@@ -41,11 +41,11 @@
 					</div>	
 				</div>
 				<!-- IMAGE -->
-				<div *ngSwitchCase="IMAGE">
+				<div *ngSwitchCase="'IMAGE'">
 					<img [src]="widget.url" [style.width]="widget.width">
 				</div>
 				<!-- YOUTUBE -->
-				<div *ngSwitchCase="YOUTUBE">
+				<div *ngSwitchCase="'YOUTUBE'">
 					<div class="embed-responsive embed-responsive-16by9">
 						<iframe [src]="this.getYoutubeUrl(widget.url)" [style.width]="widget.width" frameborder="0" allowfullscreen></iframe>
 					</div>

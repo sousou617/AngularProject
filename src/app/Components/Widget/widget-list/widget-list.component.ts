@@ -25,7 +25,7 @@ widgets: Widget[];
   		this.wid = params['wid'];
   		this.pid = params['pid'];
   		this.widgets = this.widgetService.findWidgetsByPageId(this.pid);
-
+      // console.log(this.widgets);
   	});
   }
 
