@@ -17,7 +17,7 @@ pages: Page[] = [
 
   createPage(websiteId: string, page: Page) {
     page._id = Math.floor(Math.random() * Math.floor(10000)).toString();
-    page.websiteId = websiteId
+    page.websiteId = websiteId;
     this.pages.push(page);
     return page;
   }
@@ -41,14 +41,14 @@ pages: Page[] = [
   }
 
   updatePage(pageId: string, page: Page) {
-    var oldPage = this.findPageById(pageId);
-    var index = this.pages.indexOf(oldPage);
+    let oldPage = this.findPageById(pageId);
+    const index = this.pages.indexOf(oldPage);
     this.pages[index].description = page.description;
     this.pages[index].name = page.name;
   }
 
   deletePage(pageId: string){
-    var oldPage = this.findPageById(pageId);
+    let oldPage = this.findPageById(pageId);
     const index = this.pages.indexOf(oldPage);
     this.pages.splice(index, 1);
   }
