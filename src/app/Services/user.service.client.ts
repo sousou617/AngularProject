@@ -12,7 +12,7 @@ export class UserService {
 
   baseUrl = environment.baseUrl;
 
-  constructor(private _http: Http) { }
+  constructor(private http: Http) { }
 
 users: User[] = [
 	{_id: "123", username: "alice", password: "alice", firstName: "Alice", lastName: "Wonder", email: "alice@gmail.com"},
@@ -28,10 +28,10 @@ users: User[] = [
     // return user;
     const url = this.baseUrl + '/api/user';
     return this.http.post(url, user).pipe(map(
-      response: Response) => {
+      (response: Response) => {
       return response.json();
     }
-    )
+    ))
   }
 
   findUserById(userId: string) {
@@ -66,7 +66,7 @@ users: User[] = [
   
   findUserByCredentials(username: string, password: string) {
     const url = this.baseUrl + '/api/user?username=' + username + '&password=' + password;
-    return this.http.get(url).pipe.(map(
+    return this.http.get(url).pipe(map(
       (response: Response) => {
         return response.json();
       }))

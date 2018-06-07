@@ -18,7 +18,6 @@ export class ProfileComponent implements OnInit {
 //properties
 uid: string;
 aUser: User;
-user: User;
 username: string;
 email: string;
 firstName: string;
@@ -26,8 +25,16 @@ lastName: string;
 oldUsername: string;
 usernameTaken: boolean;
 submitSuccess: boolean;
+user: User = {
+  _id: "",
+  username: '',
+  password: '',
+  firstName: '',
+  lastName: '',
+  email: '',
+}
 
-  constructor(private userService: UserService, private activateRoute: ActivatedRoute) { }
+  constructor(private userService: UserService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
     // this.activatedRoute.params.subscribe(
@@ -79,7 +86,7 @@ submitSuccess: boolean;
       );
 
 
-    if (aUser && this.oldUsername !== this.username) {
+    if (this.aUser && this.oldUsername !== this.username) {
       this.usernameTaken = true;
       this.submitSuccess = false;
     } else {

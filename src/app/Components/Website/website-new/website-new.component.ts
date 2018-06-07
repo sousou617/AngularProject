@@ -21,25 +21,30 @@ description: string;
 
   constructor(private websiteService: WebsiteService, private activatedRoute: ActivatedRoute, private router: Router) { }
 
+  create() {
+    this.name = this.websiteForm.value.name;
+    this.description = this.websiteForm.value.description;
+    const newWebsite: Website = {
+      _id: "",
+      name: this.name,
+      developerId:  "",
+      description: this.description
+    };
+    this.websiteService.createWebsite(this.uid, newWebsite);
+    this.router.navigate(['user', this.uid, 'website']);
+
+  }
+
   ngOnInit() {
   	this.activatedRoute.params.subscribe(params => {
   		this.uid = params['uid'];
-  		this.websites = this.websiteService.findWebsiteByUser(this.uid);
+  		this.websiteService.findWebsitesByUser(this.uid).subscribe(
+        (website: Website) => {
+
+        })
   	});
   }
 
-  create() {
-  	this.name = this.websiteForm.value.name;
-  	this.description = this.websiteForm.value.description;
-  	const newWebsite: Website = {
-  		_id: "",
-  		name: this.name,
-  		developerId:  "",
-  		description: this.description
-  	};
-  	this.websiteService.createWebsite(this.uid, newWebsite);
-  	this.router.navigate(['user', this.uid, 'website']);
 
-  }
 
 }

@@ -53,7 +53,7 @@ export class RegisterComponent implements OnInit {
         };
         this.userService.createUser(newUser).subscribe(
           (user: User) => {
-            var id: user._id;
+            var id = user._id;
             this.router.navigate(['user', id]);
           }
         )
