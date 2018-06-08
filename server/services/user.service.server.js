@@ -15,7 +15,7 @@ module.exports = function(app) {
 
 // 	find all users:	
 
-  function selectUserById(uid) {
+  function selectUserById(req, res) {
     for (let x=0; x<users.length; x++) {
       if (users[x]._id === uid) {
         return users[x];
@@ -29,7 +29,7 @@ module.exports = function(app) {
     var uid = req.params['uid'];
     var users = selectUserById(uid);
     res.json(user);
-
+                                                                                                                                 
    //   for (let x = 0; x < users.length; x++) {
    //       if (users[x]._id === uid) {  
    //       res.json(users[x]);
@@ -92,8 +92,8 @@ module.exports = function(app) {
 	function deleteUser(req, res) {
 		var uid = req.params['uid'];
 		var oldUser = selectUserById(uid);
-		var index = this.users.indexOf(oldUser);
-      this.users.splice(index, 1);
+		var index = users.indexOf(oldUser);
+      users.splice(index, 1);
       res.json(users);
 	}
 	

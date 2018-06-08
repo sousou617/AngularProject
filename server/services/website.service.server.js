@@ -22,25 +22,25 @@ websites = [
 
   function createWebsite(req, res) {
   	var website = req.body;
-  	var uid - req.params['uid'];
+  	var uid = req.params['uid'];
     website._id = Math.floor(Math.random() * 10000).toString();
-    website.developerId = userId; 
+    website.developerId = uid; 
     websites.push(website);
     res.json(website);
   }
 
   function findAllWebsitesForUser(req, res) {
-        var uid - req.params['uid']; 	    
+        var uid = req.params['uid']; 	    
         var result = [];
     for (let i = 0; i <websites.length; i++) {
-      if (websites[i].developerId === userId) {
+      if (websites[i].developerId === uid) {
         result.push(websites[i]);
     }
   }
   res.json(result);
 }
 	
-	function selectWebsiteById(req, res) {
+	function selectWebsiteById(wid) {
     for (let i=0; i<websites.length; i++) {
       if (websites[i]._id === wid) {
         return websites[i];
