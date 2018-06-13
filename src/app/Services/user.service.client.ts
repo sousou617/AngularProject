@@ -14,12 +14,6 @@ export class UserService {
 
   constructor(private http: Http) { }
 
-users: User[] = [
-	{_id: "123", username: "alice", password: "alice", firstName: "Alice", lastName: "Wonder", email: "alice@gmail.com"},
-	{_id: "234", username: "bob", password: "bob", firstName: "Bob", lastName: "Marley", email: "bob@whatever.com"},
-	{_id: "345", username: "charly", password: "charly", firstName: "Charly", lastName: "Garcia", email: "charly@hotmail.com"},
-	{_id: "456", username: "shiyu", password: "shiyu", firstName: "Shiyu", lastName: "Wang", email: "swang@ulem.org"}
-	];
 
   createUser(user: User) {
 
@@ -31,37 +25,23 @@ users: User[] = [
       (response: Response) => {
       return response.json();
     }
-    ))
+    ));
   }
 
   findUserById(userId: string) {
-    const url = this.baseUrl + '/api/user' + userId;
+    const url = this.baseUrl + '/api/user/' + userId;
     return this.http.get(url).pipe(map(
       (response: Response) => {
         return response.json();
-      }))
-    // for (let x = 0; x < this.users.length; x++) {
-    //   if (this.users[x]._id === userId) {  
-    //     return this.users[x];
-    //   }
-    // }
+      }));
   }
 
   findUserByUsername(username: string) {
-    // for (let x = 0; x< this.users.length; x++) {
-    //   if (this.users[x].username === username) {
-    //     return this.users[x];
-    //   }
-    // }
     const url = this.baseUrl + '/api/user?username=' + username;
-
     return this.http.get(url).pipe(map(
       (response: Response) => {
         return response.json();
-      }))
-    // return this.users.find(function(user: User) {
-    //   return user.username === username;
-    // })
+      }));
   }
   
   findUserByCredentials(username: string, password: string) {
@@ -69,12 +49,7 @@ users: User[] = [
     return this.http.get(url).pipe(map(
       (response: Response) => {
         return response.json();
-      }))
-    // for (let x = 0; x< this.users.length; x++) {
-    //   if (this.users[x].username === username && this.users[x].password === password) {
-    //     return this.users[x];
-    //   }
-    // }
+      }));
   }
 
   updateUser(userId: string, user: User) {
@@ -82,15 +57,7 @@ users: User[] = [
     return this.http.put(url, user).pipe(map(
       (response: Response) => {
         return response.json();
-      }))
-    // var oldUser = this.findUserById(userId);
-    // var index = this.users.indexOf(oldUser);
-
-    // this.users[index].username = user.username;
-    // this.users[index].password = user.password;
-    // this.users[index].firstName = user.firstName;
-    // this.users[index].lastName = user.lastName;
-    // this.users[index].email = user.email;
+      }));
   }
 
   deleteUser(userId: string) {
@@ -99,10 +66,6 @@ users: User[] = [
       (response: Response) => {
         return response.json();
       }
-    ))
-  //   var oldUser = this.findUserById(userId);
-  //   var index = this.users.indexOf(oldUser);
-  //   this.users.splice(index, 1);
-  // }
-}
+    ));
+  }
 }

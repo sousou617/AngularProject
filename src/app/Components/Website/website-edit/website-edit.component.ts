@@ -63,7 +63,7 @@ wid: string;
 
     delete() {
       this.websiteService.deleteWebsite(this.wid).subscribe(
-        (website: Website[]) => {
+        (websites: Website[]) => {
         this.router.navigate(['user', this.uid, 'website']);
         }
       );

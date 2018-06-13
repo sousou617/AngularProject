@@ -1,5 +1,5 @@
-<nav class="navbar navbar-dark cb-gray fixed-top">
-        <a class="navbar-brand cb-font-white cb-no-underline" routerLink="/user/:uid">
+ <nav class="navbar navbar-dark cb-gray fixed-top">
+        <a class="navbar-brand cb-font-white cb-no-underline" routerLink="/user/{{uid}}">
           <h4>Profile</h4></a>
         <button class="cb-font-white" type="submit" form="profileForm" [disabled]="f.invalid"><i class="fas fa-check"></i></button>
 </nav>
@@ -14,6 +14,7 @@
 
   <form (ngSubmit)="update()" id="profileForm" #f="ngForm">
     <div class="form-group">
+      <h1>{{this.user.username}}</h1>
       <label><b>Username</b></label>
       <input 
       type="text"  
@@ -25,7 +26,7 @@
       class="form-control">
     </div>
     <div class="form-group">
-      <label for="email" class="email"><b>Email</b></label>
+      <label for="email" for="email"><b>Email</b></label>
       <input 
       type="email" 
       name="email" 
@@ -35,9 +36,9 @@
       #email="ngModel">
     </div>
     <div class="form-group">
-      <label for="firstname"><b>First Name</b></label>
+      <label for="firstName"><b>First Name</b></label>
       <input 
-      type="name" 
+      type="text" 
       name="firstName" 
       placeholder="First name" 
       class="form-control"
@@ -45,9 +46,9 @@
       #firstName="ngModel">
     </div>
     <div class="form-group">
-      <label type="name" class="lastname"><b>Last Name</b></label>
+      <label type="name" for="lastName"><b>Last Name</b></label>
       <input 
-      type="name" 
+      type="text" 
       name="lastName" 
       placeholder="Last name" 
       class="form-control"
@@ -65,6 +66,6 @@
   <!-- Bottom Navbar -->
     <nav class="navbar navbar-dark cb-gray fixed-bottom">
       <div class="cb-width">
-      <a class="cb-font-white cb-float-right" routerLink="/user/:uid"><i class="fas fa-user"></i></a>
+      <a class="cb-font-white cb-float-right" routerLink="/user/{{uid}}"><i class="fas fa-user"></i></a>
       </div>
     </nav>

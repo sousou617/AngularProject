@@ -15,7 +15,7 @@ module.exports = function(app) {
 
 // 	find all users:	
 
-  function selectUserById(req, res) {
+  function selectUserById(uid) {
     for (let x=0; x<users.length; x++) {
       if (users[x]._id === uid) {
         return users[x];
@@ -27,7 +27,7 @@ module.exports = function(app) {
 
   function findUserById(req, res) {
     var uid = req.params['uid'];
-    var users = selectUserById(uid);
+    var user = selectUserById(uid);
     res.json(user);
                                                                                                                                  
    //   for (let x = 0; x < users.length; x++) {

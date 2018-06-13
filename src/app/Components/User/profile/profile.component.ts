@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgModule } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
-import { Injectable } from '@angular/core';
+// import { Injectable } from '@angular/core';
 import { UserService } from '../../../services/user.service.client';
 import { NgForm } from '@angular/forms';
 import { User } from '../../../models/user.model.client';
@@ -26,26 +26,17 @@ oldUsername: string;
 usernameTaken: boolean;
 submitSuccess: boolean;
 user: User = {
-  _id: "",
+  _id: '',
   username: '',
   password: '',
   firstName: '',
   lastName: '',
   email: '',
-}
+};
 
   constructor(private userService: UserService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    // this.activatedRoute.params.subscribe(
-    //   function info(params){
-    //     this.uid = params['uid'];
-    //     this.user = this.userService.findUserById(this.uid);
-    //     this.username = this.user.username;
-    //     this.email = this.user.email;
-    //     this.firstName = this.user.firstName;
-    //     this.lastName = this.user.lastName;
-    // }.bind(this));
     this.usernameTaken = false;
     this.submitSuccess = false;
     this.activatedRoute.params.subscribe(
@@ -62,12 +53,6 @@ user: User = {
             this.oldUsername = this.user.username;
           }
         );
-        // this.user = this.userService.findUserById(this.uid);
-        // this.username = this.user.username;
-        // this.email = this.user.email;
-        // this.firstName = this.user.firstName;
-        // this.lastName = this.user.lastName;
-        // this.oldUsername = this.user.username;
       })
   }
 
@@ -83,7 +68,7 @@ user: User = {
       (user: User) => {
         this.aUser = user;
       }
-      );
+     );
 
 
     if (this.aUser && this.oldUsername !== this.username) {

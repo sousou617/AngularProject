@@ -6,7 +6,7 @@ pages = [
   { _id: "543", name: "Post 3", websiteId: "456", description: "Lorem" }
 ];
 
-	app.get('/api/website/:wid/page', createPage);
+	app.post('/api/website/:wid/page', createPage);
 	app.get('/api/website/:wid/page', findAllPagesForWebsite);
 	app.post('/api/page/:pid', findPageById);
 	app.put('/api/page/:pid', updatePage);
@@ -17,7 +17,7 @@ pages = [
     	page._id = Math.floor(Math.random() * Math.floor(10000)).toString();
     	page.websiteId = req.params['wid'];
     	pages.push(page);
-    	res.jason(page);
+    	res.json(page);
   }
 
   function findAllPagesForWebsite(req, res) {

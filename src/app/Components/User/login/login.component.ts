@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() { }
 
   login() {
-
+    // console.log(this.loginForm.value.username);
 //	fetching data from loginform
 	this.username = this.loginForm.value.username;
   this.password = this.loginForm.value.password;  
@@ -34,9 +34,8 @@ export class LoginComponent implements OnInit {
   this.userService.findUserByCredentials(this.username, this.password).subscribe(
       (user: User) => {
        this.errorFlag = false; 
-       this.router.navigate(['user' + user._id]);
-      }
-      ),
+       this.router.navigate(['user' , user._id]);
+      }),
 
       (error: any) => {
         this.errorFlag = true;
@@ -44,17 +43,6 @@ export class LoginComponent implements OnInit {
     }  
   }
 
-
-  // if(user) {
-  //   //navigate to profile 
-  //   this.errorFlag = false; 
-  //   this.router.navigate(['/user/' + user._id])
-    
-  //   } else {
-  //     this.errorFlag = true;
-  //   }
-  
-  // }	
 
 
 

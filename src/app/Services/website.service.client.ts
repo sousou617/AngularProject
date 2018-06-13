@@ -24,7 +24,7 @@ export class WebsiteService {
   }
 
   findWebsitesByUser(userId: string){
-    const url = this.baseUrl + "/api/user/" + userId + "/website"
+    const url = this.baseUrl + '/api/user/' + userId + '/website'
     return this.http.get(url).pipe(map(
       (response: Response) => {
         return response.json();
@@ -34,7 +34,7 @@ export class WebsiteService {
 
 
   findWebsiteById(websiteId: string) {
-    const url = this.baseUrl + "/api/website/" + websiteId;
+    const url = this.baseUrl + '/api/website/' + websiteId;
     return this.http.get(url).pipe(map(
       (response: Response) => {
         return response.json();
@@ -43,7 +43,7 @@ export class WebsiteService {
   }
 
   updateWebsite(websiteId: string, website: Website) {
-    const url = this.baseUrl + "/api/website/" + websiteId;
+    const url = this.baseUrl + '/api/website/' + websiteId;
     return this.http.put(url, website).pipe(map(
       (response: Response) => {
         return response.json();
@@ -52,7 +52,7 @@ export class WebsiteService {
   }
 
   deleteWebsite(websiteId: string) {
-    const url = this.baseUrl + "/api/website/" + websiteId;
+    const url = this.baseUrl + '/api/website/' + websiteId;
     return this.http.delete(url).pipe(map(
       (response: Response) => {
         return response.json();
