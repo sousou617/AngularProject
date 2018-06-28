@@ -26,6 +26,7 @@ function findUserById(req, res) {
     )
     }
 
+
   function findUser(req, res) {
     const username = req.query['username'];
     const password = req.query['password'];
