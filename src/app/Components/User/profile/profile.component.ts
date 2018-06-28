@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgModule } from '@angular/core';
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 // import { Injectable } from '@angular/core';
 import { UserService } from '../../../services/user.service.client';
 import { NgForm } from '@angular/forms';
@@ -34,7 +34,7 @@ user: User = {
   email: '',
 };
 
-  constructor(private userService: UserService, private activatedRoute: ActivatedRoute) { }
+  constructor(private router: Router, private userService: UserService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
     this.usernameTaken = false;

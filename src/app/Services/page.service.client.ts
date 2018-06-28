@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Page } from '../models/page.model.client';
 import {Http, Response} from '@angular/http';
 import { map } from "rxjs/operators";
-import {environment} from '../../environments/environment';
+import { environment } from '../../environments/environment';
 
 // injecting service into module
 @Injectable()

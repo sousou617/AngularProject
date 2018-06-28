@@ -19,7 +19,11 @@ uid: string;
 websites: Website[];
 name: string;
 description: string;
-website: Website;
+website: Website ={
+  name: "",
+  description: "",
+  developerId: ""
+};
 wid: string;
 
   constructor(private websiteService: WebsiteService, private activatedRoute: ActivatedRoute, private router: Router) { }

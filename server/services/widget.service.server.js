@@ -1,4 +1,8 @@
 module.exports = function(app) {
+	
+    var multer = require('multer'); // npm install multer --save
+	var upload = multer({ dest: './dist/assets/uploads' });
+
 	widgets = [
   { _id: "123", widgetType: "HEADING", pageId: "321", size: 2, text: "GIZMODO"},
   { _id: "234", widgetType: "HEADING", pageId: "321", size: 4, text: "Lorem ipsum"},
@@ -14,8 +18,29 @@ app.get('/api/page/:pid/widget', findAllWidgetsForPage);
 app.get('/api/widget/:wgid', findWidgetById);
 app.put('/api/widget/:wgid', updateWidget);
 app.delete('/api/widget/:wgid', deleteWidget);
+app.post("/api/user/:uid/website/:wid/page/:pid/widget/:wgid/upload", 
+	upload.single('myFile'), uploadImage);
 
 	
+	function uploadImage(req, res) {
+		const uid = req.params['uid'];
+		const wid = req.params['wid'];
+		const pid = req.params['pid'];
+		const wgid = req.params['wgid'];
+
+		// request a file
+		var myFile = req.file;
+
+		widget = selectWidgetById(wgid);
+		widget.url = '/assets/uploads/' + myFile.filename;
+
+		// reload and call back from Edit Widget page
+		var callbackUrl = req.headers.origin + '/user/' + uid + '/website/' + wid + '/page/' + '/widget/' + wgid;
+		res.redirect(callbackUrl);
+	}
+
+
+
 	function createWidget(req, res) {
 		const pid = req.params['pid'];
 		const widget = req.body;

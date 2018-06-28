@@ -3,7 +3,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { WidgetService } from "../../../../services/widget.service.client";
 import { ActivatedRoute, Router } from "@angular/router";
 import { Widget } from "../../../../models/widget.model.client";
-import { NgForm } from '@angular/forms'
+import { NgForm } from '@angular/forms';
+import { environment } from '../../../../../environments/environment'
 
 @Component({
   selector: 'app-widget-image',
@@ -27,6 +28,7 @@ export class WidgetImageComponent implements OnInit {
   text: string;
   url: string;
   width: string;
+  baseUrl: string;
 
   constructor(private activatedRoute: ActivatedRoute, private widgetService: WidgetService, private router: Router) { }
 
@@ -36,6 +38,7 @@ export class WidgetImageComponent implements OnInit {
   		this.wid = params['wid'];
   		this.pid = params['pid'];
   		this.wgid = params['wgid'];
+      this.baseUrl = environment.baseUrl;
       this.widgetService.findWidgetById(this.wgid).subscribe(
         (widget: Widget) => {
           this.widget = widget;

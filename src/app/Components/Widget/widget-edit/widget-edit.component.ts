@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Widget } from '../../../models/widget.model.client';
 import { WidgetService} from '../../../services/widget.service.client';
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 
 
 @Component({

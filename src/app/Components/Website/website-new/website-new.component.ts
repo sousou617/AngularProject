@@ -15,7 +15,11 @@ export class WebsiteNewComponent implements OnInit {
 @ViewChild('f') websiteForm: NgForm;
 
 uid: string;
-websites: Website[];
+website: Website ={
+  name: "",
+  description: "",
+  developerId: ""
+};
 name: string;
 description: string;
 
@@ -25,9 +29,8 @@ description: string;
     this.name = this.websiteForm.value.name;
     this.description = this.websiteForm.value.description;
     const newWebsite: Website = {
-      _id: "",
       name: this.name,
-      developerId:  "",
+      developerId: this.uid,
       description: this.description
     };
     this.websiteService.createWebsite(this.uid, newWebsite);

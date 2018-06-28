@@ -22,7 +22,7 @@ import { WidgetListComponent } from './Components/Widget/widget-list/widget-list
 import { WidgetHeaderComponent } from './Components/Widget/widget-edit/widget-header/widget-header.component';
 import { WidgetImageComponent } from './Components/Widget/widget-edit/widget-image/widget-image.component';
 import { WidgetYoutubeComponent } from './Components/Widget/widget-edit/widget-youtube/widget-youtube.component';
-
+import { FlickrImageSearchComponent } from './components/widget/widget-edit/widget-image/flickr-image-search/flickr-image-search.component';
 
 
 // // Import all other components here 
@@ -41,6 +41,7 @@ const APP_ROUTES : Routes = [
   { path : 'user/:uid/website/:wid/page/:pid/widget', component : WidgetListComponent},
   { path : 'user/:uid/website/:wid/page/:pid/widget/new', component : WidgetChooserComponent},
   { path : 'user/:uid/website/:wid/page/:pid/widget/:wgid', component : WidgetEditComponent},
+  { path : 'user/:uid/website/:wid/page/:pid/widget/:wgid/flickr', component : FlickrImageSearchComponent},
 //   // so on
 ];
 

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { User } from '../models/user.model.client';
-import {Http, Response} from '@angular/http';
+import { Http, Response } from '@angular/http';
 import { map } from "rxjs/operators";
 import {environment} from '../../environments/environment';
 
@@ -16,10 +16,6 @@ export class UserService {
 
 
   createUser(user: User) {
-
-    // user._id = Math.floor(Math.random() * Math.floor(10000)).toString();
-    // this.users.push(user);
-    // return user;
     const url = this.baseUrl + '/api/user';
     return this.http.post(url, user).pipe(map(
       (response: Response) => {
@@ -53,7 +49,7 @@ export class UserService {
   }
 
   updateUser(userId: string, user: User) {
-    const url = this.baseUrl + '/api/user' + userId;
+    const url = this.baseUrl + '/api/user/' + userId;
     return this.http.put(url, user).pipe(map(
       (response: Response) => {
         return response.json();

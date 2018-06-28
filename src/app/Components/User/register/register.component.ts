@@ -19,6 +19,7 @@ export class RegisterComponent implements OnInit {
 	verifyPassword: string;
 	passwordError: boolean;
 	usernameError: boolean;
+  user: User;
 
   constructor(private userService: UserService, private router: Router) { }
 
