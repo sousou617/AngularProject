@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgModule } from '@angular/core';
-import { ActivatedRoute, Router } from "@angular/router";
-// import { Injectable } from '@angular/core';
+import { ActivatedRoute } from "@angular/router";
 import { UserService } from '../../../services/user.service.client';
 import { NgForm } from '@angular/forms';
 import { User } from '../../../models/user.model.client';
@@ -18,10 +17,10 @@ export class ProfileComponent implements OnInit {
 //properties
 uid: string;
 aUser: User;
-username: string;
-email: string;
-firstName: string;
-lastName: string;
+username: string = '1';
+email: string = '1';
+firstName: string = '1';
+lastName: string = '1';
 oldUsername: string;
 usernameTaken: boolean;
 submitSuccess: boolean;
@@ -34,7 +33,7 @@ user: User = {
   email: '',
 };
 
-  constructor(private router: Router, private userService: UserService, private activatedRoute: ActivatedRoute) { }
+  constructor(private userService: UserService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
     this.usernameTaken = false;

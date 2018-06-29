@@ -68,7 +68,7 @@ function findUserById(req, res) {
       (data) => {
         res.json(data);
       }
-      );
+    );
 	}
 
 
