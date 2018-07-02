@@ -18,7 +18,6 @@ pid: string;
 uid: string;
 wgid: string;
 widget: Widget= {
-	_id: '',
 	widgetType: '',
 	pageId: '',
 };	

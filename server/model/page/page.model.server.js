@@ -14,7 +14,7 @@ function createPage(page) {
 	return PageModel.create(page);
 }
 
-function findAllPagesForWebsite(websiteId) {
+function findAllPagesForWebsite(wid) {
 	return PageModel.find({websiteId:wid});
 }
 

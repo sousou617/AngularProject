@@ -1,28 +1,35 @@
-// var mongoose = require('mongoose');
+var mongoose = require('mongoose');
 
-// var WidgetSchema = require('./widget.schema.server');
-// var WidgetModel = mongoose.model('WidgetModel', WidgetSchema);
+var WidgetSchema = require('./widget.schema.server');
+var WidgetModel = mongoose.model('WidgetModel', WidgetSchema);
 
-// var PageSchema = require('../page/page.schema.server');
-// var PageModel = mongoose.model('PageModel', PageSchema);
 
-// WidgetModel.createWidget = createWidget;
-// WidgetModel.findAllWidgetsForPage = findAllWidgetsForPage;
-// WidgetModel.findWidgetById = findWidgetById;
-// WidgetModel.updateWidget = updateWidget;
-// WidgetModel.deleteWidget = deleteWidget;
-// WidgetModel.reorderWidget = reorderWidget;
+WidgetModel.createWidget = createWidget;
+WidgetModel.findAllWidgetsForPage = findAllWidgetsForPage;
+WidgetModel.findWidgetById = findWidgetById;
+WidgetModel.updateWidget = updateWidget;
+WidgetModel.deleteWidget = deleteWidget;
 
-// module.exports = WidgetModel;
+module.exports = WidgetModel;
 
-// function createWidget(pageId, widget) {}
+function createWidget(widget) {
+	return WidgetModel.create(widget);
+}
 
-// function findAllWidgetsForPage(pageId) {}
+function findAllWidgetsForPage(pid) {
+	return WidgetModel.find({pageId: pid});
+}
 
-// function findWidgetById(widgetId) {
+function findWidgetById(wgid) {
+	return WidgetModel.findbyId(wgid);
+}
 
-// }
+function updateWidget(wgid, widget) {
+	return WidgetModel.update({_id: wgid}, widget);
+}
 
-// function updateWidget(widgetId, widget) {
-	
-// }
+function deleteWidget(wgid) {
+	return WidgetModel.remove({_id: wgid});
+}
+
+module.exports = WidgetModel;

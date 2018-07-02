@@ -1,6 +1,6 @@
 module.exports = function(app) {
 
-  var PageModel = require('../model/page/page.model.server')
+  var pageModel = require('../model/page/page.model.server')
 
 // pages = [
 //   { _id: "321", name: "Post 1", websiteId: "456", description: "Lorem" },
@@ -20,7 +20,7 @@ module.exports = function(app) {
       (data) => {
         res.json(data);
       }
-    )
+    );
   }
 
   function findAllPagesForWebsite(req, res) {

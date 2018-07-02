@@ -15,11 +15,7 @@ export class WebsiteNewComponent implements OnInit {
 @ViewChild('f') websiteForm: NgForm;
 
 uid: string;
-website: Website ={
-  name: "",
-  description: "",
-  developerId: ""
-};
+website: Website[];
 name: string;
 description: string;
 
@@ -33,8 +29,11 @@ description: string;
       developerId: this.uid,
       description: this.description
     };
-    this.websiteService.createWebsite(this.uid, newWebsite);
-    this.router.navigate(['user', this.uid, 'website']);
+    this.websiteService.createWebsite(this.uid, newWebsite).subscribe(
+      (website: Website) => {
+        this.router.navigate(['user', this.uid, 'website']);
+      }
+    );
 
   }
 
@@ -43,11 +42,11 @@ description: string;
   		this.uid = params['uid'];
   		this.websiteService.findWebsitesByUser(this.uid).subscribe(
         (website: Website) => {
-
-        })
-  	});
+        }
+       );
+  	  }
+    );
   }
-
 
 
 }

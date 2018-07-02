@@ -14,7 +14,6 @@ export class WidgetEditComponent implements OnInit {
   constructor(private widgetService: WidgetService, private activatedRoute: ActivatedRoute) { }
 
   widget: Widget= {
-    _id: '',
     widgetType: '',
     pageId: '',
   };

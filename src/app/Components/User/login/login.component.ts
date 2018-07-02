@@ -26,22 +26,29 @@ export class LoginComponent implements OnInit {
   ngOnInit() { }
 
   login() {
-    // console.log(this.loginForm.value.username);
-//	fetching data from loginform
-	this.username = this.loginForm.value.username;
-  this.password = this.loginForm.value.password;  
 
-  this.userService.findUserByCredentials(this.username, this.password).subscribe(
+    this.username = this.loginForm.value.username;
+    this.password = this.loginForm.value.password;
+
+    this.userService.findUserByCredentials(this.username, this.password).subscribe(
       (user: User) => {
-       this.errorFlag = false; 
-       this.router.navigate(['user', user._id]);
-      }),
+        if(user){
+          this.errorFlag = false;
+          this.router.navigate(['user', user._id]);
+        } else {
+          this.errorFlag = true;
+        }
 
+      },
       (error: any) => {
         this.errorFlag = true;
       }
-    }  
+    )
   }
+
+ 
+
+}
 
 
 
