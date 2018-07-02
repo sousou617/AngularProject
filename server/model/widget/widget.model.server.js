@@ -10,7 +10,6 @@ WidgetModel.findWidgetById = findWidgetById;
 WidgetModel.updateWidget = updateWidget;
 WidgetModel.deleteWidget = deleteWidget;
 
-module.exports = WidgetModel;
 
 function createWidget(widget) {
 	return WidgetModel.create(widget);
@@ -21,7 +20,7 @@ function findAllWidgetsForPage(pid) {
 }
 
 function findWidgetById(wgid) {
-	return WidgetModel.findbyId(wgid);
+	return WidgetModel.findById(wgid);
 }
 
 function updateWidget(wgid, widget) {

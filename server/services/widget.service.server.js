@@ -30,7 +30,7 @@ app.post("/api/user/:uid/website/:wid/page/:pid/widget/:wgid/upload",
 		const pid = req.params['pid'];
 		const wgid = req.params['wgid'];
 
-		// request a file
+	
 		var myFile = req.file;
 
 		widget = widgetModel.findWidgetById(wgid).then(
