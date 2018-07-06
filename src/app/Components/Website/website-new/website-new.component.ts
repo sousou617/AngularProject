@@ -15,7 +15,7 @@ export class WebsiteNewComponent implements OnInit {
 @ViewChild('f') websiteForm: NgForm;
 
 uid: string;
-website: Website[];
+websites: Website[];
 name: string;
 description: string;
 
