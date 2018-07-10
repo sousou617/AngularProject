@@ -52,11 +52,11 @@ export class WidgetYoutubeComponent implements OnInit {
   }
 
   update() {
-  this.name=this.widgetForm.value.name;
+    this.name=this.widgetForm.value.name;
     this.text = this.widgetForm.value.text;
     this.url = this.widgetForm.value.url;
     this.width = this.widgetForm.value.width;
-
+    console.log(this.url);
     const updatedWidget: Widget = {
       _id: this.wgid,
       name: this.name,

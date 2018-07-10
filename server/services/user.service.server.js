@@ -2,18 +2,47 @@ module.exports = function(app) {
 
   var userModel = require('../model/user/user.model.server.js');
 
-	// var users = [
-	// {_id: "123", username: "alice", password: "alice", firstName: "Alice", lastName: "Wonder", email: "alice@gmail.com"},
-	// {_id: "234", username: "bob", password: "bob", firstName: "Bob", lastName: "Marley", email: "bob@whatever.com"},
-	// {_id: "345", username: "charly", password: "charly", firstName: "Charly", lastName: "Garcia", email: "charly@hotmail.com"},
-	// {_id: "456", username: "shiyu", password: "shiyu", firstName: "Shiyu", lastName: "Wang", email: "swang@ulem.org"}
-	// ];
+  var passport = require('passport');
+  passport.serializeUser(serializeUser);
+
+
+  function serializeUser(user, done) {
+    done(null, user);
+}
+  passport.deserializeUser(deserializeUser);
+
+  function deserializeUser(user, done) {
+    developerModel
+        .findDeveloperById(user._id)
+        .then(
+            function(user){
+                done(null, user);
+            },
+            function(err){
+                done(err, null);
+            }
+        );
+}
 
 	app.get('/api/user', findUser);
 	app.get('/api/user/:uid', findUserById);
 	app.post('/api/user', createUser);
 	app.put('/api/user/:uid', updateUser);
 	app.delete('/api/user/:uid', deleteUser);
+  app.post ('/api/register', register);
+
+
+function register (req, res) {
+    var user = req.body;
+    userModel.createUser(user).then(
+            function(user){
+               req.login(user, function(err) {
+                   res.json(user);
+               });
+            });
+}
+
+
 
 //  find users by given ID: 
 

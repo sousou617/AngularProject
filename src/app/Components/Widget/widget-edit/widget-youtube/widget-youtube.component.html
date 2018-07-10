@@ -18,7 +18,7 @@
 		</div>
 		<div class="form-group">
 			<label for="URL"><b>URL</b></label>
-			<input type="text" name="URL" class="form-control" required ngModel="{{widget.url}}" #url="ngModel" placeholder="https://www.Youtube.com">
+			<input type="text" name="url" class="form-control" required ngModel="{{widget.url}}" #url="ngModel" placeholder="https://www.Youtube.com">
 		</div>
 		<div class="alert alert-danger" *ngIf="url.invalid && url.touched">Url can't be empty!</div>
 

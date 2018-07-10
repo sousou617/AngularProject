@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { User } from '../models/user.model.client';
-import { Http, Response } from '@angular/http';
+import { Http, Response, RequestOptions } from '@angular/http';
 import { map } from "rxjs/operators";
-import {environment} from '../../environments/environment';
+import { environment } from '../../environments/environment';
+import { SharedService } from './shared.service.client';
 
 
 // injecting service into module
@@ -11,8 +12,40 @@ import {environment} from '../../environments/environment';
 export class UserService {
 
   baseUrl = environment.baseUrl;
+  options: RequestOptions = new RequestOptions();
 
-  constructor(private http: Http) { }
+
+  constructor(private http: Http, private sharedService: SharedService) { }
+
+    register(username: String, password: String) {
+     // this communication will be secured
+     this.options.withCredentials = true;
+     const user = {
+       username : username,
+       password : password
+ };
+     return this.http.post(this.baseUrl + '/api/register', user, this.options).pipe(map(
+     (res: Response) => {
+       const data = res.json();
+       return data;
+     }
+   ));
+}
+
+ 
+ login(username: String, password: String) {
+ this.options.withCredentials = true; // jga
+ const user = {
+   username : username,
+   password : password
+ };
+
+ return this.http.post(this.baseUrl + '/api/login', user, this.options).pipe(map(
+     (res: Response) => {
+       return res.json();
+     }
+   ));
+}
 
 
   createUser(user: User) {
@@ -57,7 +90,7 @@ export class UserService {
   }
 
   deleteUser(userId: string) {
-    const url = this.baseUrl + '/api/user' + userId;
+    const url = this.baseUrl + '/api/user/' + userId;
     return this.http.delete(url).pipe(map(
       (response: Response) => {
         return response.json();

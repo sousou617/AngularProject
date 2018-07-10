@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
+
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './Components/user/login/login.component';
@@ -27,7 +28,7 @@ import { WebsiteService } from './services/website.service.client';
 import { PageService } from './services/page.service.client';
 import { WidgetService } from './services/widget.service.client';
 import { FlickrService } from './services/flickr.service.client';
-
+import {SharedService} from './services/shared.service.client';
 
 
 @NgModule({
@@ -57,7 +58,13 @@ import { FlickrService } from './services/flickr.service.client';
     Routing
   
   ],
-  providers: [UserService, WebsiteService, PageService, WidgetService, FlickrService],
+  providers: [UserService, 
+  WebsiteService, 
+  PageService, 
+  WidgetService, 
+  FlickrService, 
+  SharedService],
+ 
   bootstrap: [AppComponent]
 })
 export class AppModule { }

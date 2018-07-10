@@ -4,6 +4,7 @@ import { ActivatedRoute } from "@angular/router";
 import { UserService } from '../../../services/user.service.client';
 import { NgForm } from '@angular/forms';
 import { User } from '../../../models/user.model.client';
+import {SharedService} from '../../../services/shared.service.client';
 
 @Component({
   selector: 'app-profile',
@@ -25,7 +26,6 @@ oldUsername: string;
 usernameTaken: boolean;
 submitSuccess: boolean;
 user: User = {
-  _id: '',
   username: '',
   password: '',
   firstName: '',
@@ -33,27 +33,20 @@ user: User = {
   email: '',
 };
 
-  constructor(private userService: UserService, private activatedRoute: ActivatedRoute) { }
+  constructor(private sharedService: SharedService, private userService: UserService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
+
     this.usernameTaken = false;
     this.submitSuccess = false;
-    this.activatedRoute.params.subscribe(
-      params =>  {
-        this.uid = params['uid'];
-        // console.log(this.uid);
-        this.userService.findUserById(this.uid).subscribe(
-          (user: User) => {
-            this.user = user;
-            this.username = this.user.username;
-            this.email = this.user.email;
-            this.firstName = this.user.firstName;
-            this.lastName = this.user.lastName;
-            this.oldUsername = this.user.username;
-          }
-        );
-      })
-  }
+    this.user = this.sharedService.user;
+    this.username = this.user.username;
+    this.email = this.user.email;
+    this.firstName = this.user.firstName;
+    this.lastName = this.user.lastName;
+    this.oldUsername = this.user.username;
+  }    
+
 
     update() {
   	// this.user = this.userService.findUserById(this.userId);
@@ -82,9 +75,10 @@ user: User = {
         lastName: this.lastName,
         email: this.email,
       };
-      this.userService.updateUser(this.uid, updatedUser).subscribe(
+      this.userService.updateUser(this.user._id, updatedUser).subscribe(
         (user2: User) => {
           this.usernameTaken = false;
+          ;
           this.submitSuccess = true; 
         }
         );
