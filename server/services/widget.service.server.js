@@ -60,8 +60,8 @@ app.post("/api/user/:uid/website/:wid/page/:pid/widget/:wgid/upload",
 	function findAllWidgetsForPage(req, res) {
 		const pid = req.params['pid'];
 		widgetModel.findAllWidgetsForPage(pid).then(
-			(widget) => {
-				res.json(widget)
+			(widgets) => {
+				res.json(widgets)
 			}
 		);
 	}

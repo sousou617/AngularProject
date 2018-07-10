@@ -39,4 +39,5 @@ getYoutubeUrl(url) {
 	embedUrl += parsedUrl[parsedUrl.length -1];
 	return this.sanitizer.bypassSecurityTrustResourceUrl(embedUrl);
 }
+
 }
