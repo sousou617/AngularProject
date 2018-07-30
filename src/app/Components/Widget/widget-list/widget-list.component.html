@@ -1,43 +1,45 @@
-
-
 	<nav class="navbar navbar-dark fixed-top cb-gray">
 			<a routerLink="/user/{{uid}}/website/{{wid}}/page" class="cb-color-white"><i class="fas fa-chevron-left"></i></a>
-		<div class="cb-80-width">
+		
+  <div class="cb-80-width">
 			<a class="cb-color-white float-left" routerLink="/user/{{uid}}/website/{{wid}}/page/{{pid}}/widget"><b>Widgets</b></a>
-		</div>
+		
+  </div>
 			<a routerLink="/user/{{uid}}/website/{{wid}}/page/{{pid}}/widget/new" class="cb-color-white float-right"><i class="fas fa-plus"></i></a>
 	</nav>
-	<!-- Widgets -->
+	 
+   <!-- Widgets -->
 	<div class="container">
 		<div *ngFor="let widget of widgets">
-			<!-- icons for each widget -->
+			
+   <!-- icons for each widget -->
 			<div class="cb-absolute-right">
 				<a routerLink="/user/{{uid}}/website/{{wid}}/page/{{pid}}/widget/{{widget._id}}"><i class="fas fa-cogs"></i></a>
 				<a class="cb-black" routerLink="#"><i class="fas fa-bars"></i></a>
-			</div>
-			<!-- content of each widget -->
-			<div [ngSwitch]="widget.widgetType">
-				<!-- HEADING -->
-				<div *ngSwitchCase="'HEADING'">
-					<div [ngSwitch]="widget.size">
-						<div *ngSwitchCase="1">
-							<h1>{{widget.text}}</h1>
-						</div>
-						<div *ngSwitchCase="2">
-							<h2>{{widget.text}}</h2>
-						</div>
-						<div *ngSwitchCase="3">
-							<h3>{{widget.text}}</h3>
-						</div>
-						<div *ngSwitchCase="4">
-							<h4>{{widget.text}}</h4>
-						</div>
-						<div *ngSwitchCase="5">
-							<h5>{{widget.text}}</h5>
-						</div>
-						<div *ngSwitchCase="6">
-							<h6>{{widget.text}}</h6>
-						</div>
+ 			</div>
+ 			<!-- content of each widget -->
+ 			<div [ngSwitch]="widget.widgetType">
+ 				<!-- HEADING -->
+				 <div *ngSwitchCase="'HEADING'">
+					 <div [ngSwitch]="widget.size">
+						 <div *ngSwitchCase="1">
+							 <h1>{{widget.text}}</h1>
+						 </div>
+						 <div *ngSwitchCase="2">
+						  <h2>{{widget.text}}</h2>
+						 </div>
+ 						<div *ngSwitchCase="3">
+ 							<h3>{{widget.text}}</h3>
+ 						</div>
+ 						<div *ngSwitchCase="4">
+ 							<h4>{{widget.text}}</h4>
+ 						</div>
+ 						<div *ngSwitchCase="5">
+ 							<h5>{{widget.text}}</h5>
+ 						</div>
+ 						<div *ngSwitchCase="6">
+ 							<h6>{{widget.text}}</h6>
+						 </div>
 					</div>	
 				</div>
 				<!-- IMAGE -->

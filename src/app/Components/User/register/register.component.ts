@@ -3,7 +3,7 @@ import { NgForm } from '@angular/forms';
 import { UserService } from '../../../services/user.service.client';
 import { User } from '../../../models/user.model.client'
 import { Router } from '@angular/router'
-import {SharedService} from '../../../services/shared.service.client';
+import { SharedService } from '../../../services/shared.service.client';
 
 
 @Component({

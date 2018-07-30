@@ -1,5 +1,5 @@
  <nav class="navbar navbar-dark cb-gray fixed-top">
-        <a class="navbar-brand cb-font-white cb-no-underline" routerLink="/user/{{uid}}">
+        <a class="navbar-brand cb-font-white cb-no-underline" routerLink="/user">
           <h4>Profile</h4></a>
         <button class="cb-font-white" type="submit" form="profileForm" [disabled]="f.invalid"><i class="fas fa-check"></i></button>
 </nav>
@@ -14,7 +14,6 @@
 
   <form (ngSubmit)="update()" id="profileForm" #f="ngForm">
     <div class="form-group">
-      <h1>{{this.user.username}}</h1>
       <label><b>Username</b></label>
       <input 
       type="text"  
@@ -58,7 +57,7 @@
 
       <button type="button" class="btn btn-primary btn-block cb-submit-btn" data-toggle="button" routerLink="/user/{{uid}}/website">Websites</button>
       
-      <button type="button" class="btn btn-danger btn-block cb-submit-btn" data-toggle="button" routerLink="/login">Logout</button>
+      <button type="button" class="btn btn-danger btn-block cb-submit-btn" data-toggle="button" (click)="logout()">Logout</button>
   </form>
 </div>
 

@@ -18,6 +18,7 @@ function findUserById(uid) {
 }
 
 function findUserByUsername(username) {
+	// console.log("findUserByUsername");
 	return UserModel.findOne({username: username});
 }
 

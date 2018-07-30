@@ -50,12 +50,23 @@ export class PageService {
     ))
   }
 
-  deletePage(pageId: string){
+  deletePage(pageId: String) {
     const url = this.baseUrl + '/api/page/' + pageId;
-    return this.http.delete(url).pipe(map(
-      (response: Response) => {
-        return response.json();
-      }
-    ))
+    return this.http.delete(url)
+      .map(
+        (response: Response) => {
+          return response.json();
+        }
+      );
   }
+
+
+  // deletePage(pageId: string){
+  //   const url = this.baseUrl + '/api/page/' + pageId;
+  //   return this.http.delete(url).pipe(map(
+  //     (response: Response) => {
+  //       return response.json();
+  //     }
+  //   ))
+  // }
 }

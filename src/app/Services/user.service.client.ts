@@ -4,7 +4,8 @@ import { Http, Response, RequestOptions } from '@angular/http';
 import { map } from "rxjs/operators";
 import { environment } from '../../environments/environment';
 import { SharedService } from './shared.service.client';
-
+import { Router } from '@angular/router';
+import 'rxjs/Rx';
 
 // injecting service into module
 @Injectable()
@@ -15,10 +16,57 @@ export class UserService {
   options: RequestOptions = new RequestOptions();
 
 
-  constructor(private http: Http, private sharedService: SharedService) { }
+  constructor(private http: Http, private sharedService: SharedService, private router: Router) { }
+
+loggedIn() {
+
+this.options.withCredentials = true;
+
+ return this.http.post(this.baseUrl + '/api/loggedIn', '', this.options).pipe(map(
+     (res: Response) => {
+       const user = res.json();
+       if (user !== 0) {
+         this.sharedService.user = user; // setting user so as to share with all components
+         return true;
+       } else {
+         this.router.navigate(['/login']);
+         return false;
+       }
+     }
+   ));
+} 
+
+adminLoggedIn() {
+  this.options.withCredentials = true;
+
+ return this.http.post(this.baseUrl + '/api/loggedIn', '', this.options).pipe(map(
+     (res: Response) => {
+       const user = res.json();
+       if (user !== 0 && user.role == "admin") {
+         this.sharedService.user = user; // setting user so as to share with all components
+         return true;
+       } else {
+         this.router.navigate(['/login']);
+         return false;
+       }
+     }
+   ));
+}
+
+
+   logout() {
+   this.options.withCredentials = true;
+   return this.http.post(this.baseUrl + '/api/logout', '', this.options).pipe(map(
+       (res: Response) => {
+         this.sharedService.user = null;
+         return res;
+       }
+     ));
+
+}
 
     register(username: String, password: String) {
-     // this communication will be secured
+     // this communication will be secured/encripted
      this.options.withCredentials = true;
      const user = {
        username : username,
@@ -39,7 +87,7 @@ export class UserService {
    username : username,
    password : password
  };
-
+ // console.log(this.baseUrl);
  return this.http.post(this.baseUrl + '/api/login', user, this.options).pipe(map(
      (res: Response) => {
        return res.json();
@@ -49,7 +97,7 @@ export class UserService {
 
 
   createUser(user: User) {
-    const url = this.baseUrl + '/api/user';
+    const url = this.baseUrl + '/api/user/';
     return this.http.post(url, user).pipe(map(
       (response: Response) => {
       return response.json();

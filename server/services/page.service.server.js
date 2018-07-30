@@ -2,17 +2,14 @@ module.exports = function(app) {
 
   var pageModel = require('../model/page/page.model.server')
 
-// pages = [
-//   { _id: "321", name: "Post 1", websiteId: "456", description: "Lorem" },
-//   { _id: "432", name: "Post 2", websiteId: "456", description: "Lorem" },
-//   { _id: "543", name: "Post 3", websiteId: "456", description: "Lorem" }
-// ];
 
 	app.post('/api/website/:wid/page', createPage);
 	app.get('/api/website/:wid/page', findAllPagesForWebsite);
-	app.post('/api/page/:pid', findPageById);
+	app.get('/api/page/:pid', findPageById); // post or get?
 	app.put('/api/page/:pid', updatePage);
 	app.delete('/api/page/:pid', deletePage);
+
+
 
   	function createPage(req, res) {
   		var page = req.body;
@@ -22,6 +19,7 @@ module.exports = function(app) {
       }
     );
   }
+
 
   function findAllPagesForWebsite(req, res) {
     var wid = req.params['wid'];

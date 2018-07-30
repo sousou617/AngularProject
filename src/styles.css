@@ -1,4 +1,5 @@
-/* You can add global styles to this file, and also import other style files */
+/* @import "~@angular/material/prebuilt-themes/indigo-pink.css"; */
+
 body{
 	padding-top: 70px;
 	padding-bottom: 70px;
@@ -138,14 +139,18 @@ a:hover{
 	color: white;
 }
 
-/*.btn {
-	padding: 5px; 
-	margin-bottom: 5px;
-}*/
 
+/* .animate-bottom {
+	position: relative;
+	animation: animate-bottom 0.5;
+}
 
-
-/*.text{
-	text-transform: capitalize;
-}*/
+@keyframes animate-bottom {
+	from {
+		bottom: -300px;
+	}
+	to {
+		bottom: 0;
+	}
+} */
 

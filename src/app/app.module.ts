@@ -19,7 +19,7 @@ import { WidgetListComponent } from './Components/Widget/widget-list/widget-list
 import { WidgetHeaderComponent } from './Components/Widget/widget-edit/widget-header/widget-header.component';
 import { WidgetImageComponent } from './Components/Widget/widget-edit/widget-image/widget-image.component';
 import { WidgetYoutubeComponent } from './Components/Widget/widget-edit/widget-youtube/widget-youtube.component';
-import { FlickrImageSearchComponent } from './components/widget/widget-edit/widget-image/flickr-image-search/flickr-image-search.component';
+import { FlickrImageSearchComponent } from './Components/Widget/widget-edit/widget-image/flickr-image-search/flickr-image-search.component';
 
 import { Routing } from './app.routing';
 
@@ -28,7 +28,9 @@ import { WebsiteService } from './services/website.service.client';
 import { PageService } from './services/page.service.client';
 import { WidgetService } from './services/widget.service.client';
 import { FlickrService } from './services/flickr.service.client';
-import {SharedService} from './services/shared.service.client';
+import { SharedService } from './services/shared.service.client';
+import { AuthGuard } from './services/auth-guard.service';
+import { AdminGuard } from './services/adminGuard.service';
 
 
 @NgModule({
@@ -51,6 +53,7 @@ import {SharedService} from './services/shared.service.client';
     WidgetYoutubeComponent,
     FlickrImageSearchComponent
   ],
+
   imports: [
     BrowserModule,
     FormsModule,
@@ -58,12 +61,16 @@ import {SharedService} from './services/shared.service.client';
     Routing
   
   ],
-  providers: [UserService, 
+  providers: [ 
   WebsiteService, 
   PageService, 
+  UserService,
   WidgetService, 
   FlickrService, 
-  SharedService],
+  SharedService, 
+  AuthGuard, 
+  AdminGuard
+  ],
  
   bootstrap: [AppComponent]
 })

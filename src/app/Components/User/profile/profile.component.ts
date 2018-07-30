@@ -1,10 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgModule } from '@angular/core';
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router} from "@angular/router";
 import { UserService } from '../../../services/user.service.client';
 import { NgForm } from '@angular/forms';
 import { User } from '../../../models/user.model.client';
 import {SharedService} from '../../../services/shared.service.client';
+
 
 @Component({
   selector: 'app-profile',
@@ -33,20 +34,19 @@ user: User = {
   email: '',
 };
 
-  constructor(private sharedService: SharedService, private userService: UserService, private activatedRoute: ActivatedRoute) { }
+  constructor(private router: Router, private sharedService: SharedService, private userService: UserService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-
     this.usernameTaken = false;
     this.submitSuccess = false;
     this.user = this.sharedService.user;
+    this.uid = this.user._id;
     this.username = this.user.username;
     this.email = this.user.email;
     this.firstName = this.user.firstName;
     this.lastName = this.user.lastName;
     this.oldUsername = this.user.username;
   }    
-
 
     update() {
   	// this.user = this.userService.findUserById(this.userId);
@@ -61,7 +61,6 @@ user: User = {
         this.aUser = user;
       }
      );
-
 
     if (this.aUser && this.oldUsername !== this.username) {
       this.usernameTaken = true;
@@ -84,7 +83,16 @@ user: User = {
         );
       // console.log(this.userService.users);
     }
-
   }
+
+  logout() {
+
+   this.userService.logout().subscribe(
+       (data: any) => {
+       this.router.navigate(['/login'])
+     });
+ }
+  
+
  
 }
