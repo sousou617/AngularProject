@@ -8,9 +8,9 @@ import { AuthGuard } from './services/auth-guard.service';
 
 import { Routes, RouterModule } from "@angular/router";
 import { ModuleWithProviders } from "@angular/core";
-import { LoginComponent } from './Components/user/login/login.component';
-import { ProfileComponent } from './Components/user/profile/profile.component';
-import { RegisterComponent } from './Components/user/register/register.component';
+import { LoginComponent } from './Components/User/login/login.component';
+import { ProfileComponent } from './Components/User/profile/profile.component';
+import { RegisterComponent } from './Components/User/register/register.component';
 import { AppComponent } from './app.component';
 import { WebsiteNewComponent } from './Components/Website/website-new/website-new.component';
 import { WebsiteListComponent } from './Components/Website/website-list/website-list.component';
