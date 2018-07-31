@@ -3,15 +3,16 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AuthGuard } from './services/auth-guard.service';
-
+import { UserService } from './services/user.service.client';
 
 
 import { Routes, RouterModule } from "@angular/router";
 import { ModuleWithProviders } from "@angular/core";
+
+import { AppComponent } from './app.component';
 import { LoginComponent } from './Components/User/login/login.component';
 import { ProfileComponent } from './Components/User/profile/profile.component';
 import { RegisterComponent } from './Components/User/register/register.component';
-import { AppComponent } from './app.component';
 import { WebsiteNewComponent } from './Components/Website/website-new/website-new.component';
 import { WebsiteListComponent } from './Components/Website/website-list/website-list.component';
 import { WebsiteEditComponent } from './Components/Website/website-edit/website-edit.component';
@@ -25,7 +26,7 @@ import { WidgetHeaderComponent } from './Components/Widget/widget-edit/widget-he
 import { WidgetImageComponent } from './Components/Widget/widget-edit/widget-image/widget-image.component';
 import { WidgetYoutubeComponent } from './Components/Widget/widget-edit/widget-youtube/widget-youtube.component';
 import { FlickrImageSearchComponent } from './Components/Widget/widget-edit/widget-image/flickr-image-search/flickr-image-search.component';
-import { AdminGuard } from './services/adminGuard.service';
+// import { AdminGuard } from './services/adminGuard.service';
 
 
 // // Import all other components here 
@@ -38,7 +39,7 @@ const APP_ROUTES : Routes = [
   { path : 'user/:uid/website' , component: WebsiteListComponent, canActivate: [AuthGuard]},
   { path : 'user/:uid/website/new' , component: WebsiteNewComponent, canActivate: [AuthGuard]},
   { path : 'user/:uid/website/:wid' , component: WebsiteEditComponent, canActivate: [AuthGuard]},
-  { path : 'user/:uid/website/:wid/page', component : PageListComponent, canActivate: [AuthGuard, AdminGuard]},
+  { path : 'user/:uid/website/:wid/page', component : PageListComponent, canActivate: [AuthGuard]},
   { path : 'user/:uid/website/:wid/page/new', component : PageNewComponent, canActivate: [AuthGuard]},
   { path : 'user/:uid/website/:wid/page/:pid', component : PageEditComponent, canActivate: [AuthGuard]},
   { path : 'user/:uid/website/:wid/page/:pid/widget', component : WidgetListComponent, canActivate: [AuthGuard]},

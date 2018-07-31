@@ -1,17 +1,17 @@
 
-import {Injectable} from '@angular/core';
-import {CanActivate, Router} from '@angular/router';
-import {UserService} from './user.service.client';
+// import {Injectable} from '@angular/core';
+// import {CanActivate, Router} from '@angular/router';
+// import {UserService} from './user.service.client';
 
-@Injectable()
+// @Injectable()
 
-export class AdminGuard implements CanActivate {
+// export class AdminGuard implements CanActivate {
 
- constructor(private userService: UserService, private router: Router) {}
+//  constructor(private userService: UserService, private router: Router) {}
 
 
- canActivate() {
-   return this.userService.adminLoggedIn();
- }
+//  canActivate() {
+//    return this.userService.adminLoggedIn();
+//  }
 
-}
+// }
