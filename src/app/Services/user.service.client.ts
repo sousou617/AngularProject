@@ -36,22 +36,22 @@ this.options.withCredentials = true;
    ));
 } 
 
-adminLoggedIn() {
-  this.options.withCredentials = true;
+// adminLoggedIn() {
+//   this.options.withCredentials = true;
 
- return this.http.post(this.baseUrl + '/api/loggedIn', '', this.options).pipe(map(
-     (res: Response) => {
-       const user = res.json();
-       if (user !== 0 && user.role == "admin") {
-         this.sharedService.user = user; // setting user so as to share with all components
-         return true;
-       } else {
-         this.router.navigate(['/login']);
-         return false;
-       }
-     }
-   ));
-}
+//  return this.http.post(this.baseUrl + '/api/loggedIn', '', this.options).pipe(map(
+//      (res: Response) => {
+//        const user = res.json();
+//        if (user !== 0 && user.role == "admin") {
+//          this.sharedService.user = user; // setting user so as to share with all components
+//          return true;
+//        } else {
+//          this.router.navigate(['/login']);
+//          return false;
+//        }
+//      }
+//    ));
+// }
 
 
    logout() {
