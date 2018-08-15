@@ -1,4 +1,4 @@
-
+<body>
 <div class="container">
     <h1><b>Login</b></h1>
     <div *ngIf="errorFlag" 
@@ -34,7 +34,9 @@
 
         <button class="sw-font-white sw-no-underline cb-submit-btn btn btn-primary btn-block btn-large" [disabled]="f.invalid" type="submit">Login</button>
 
-        <button type="button" class="btn btn-success btn-lg btn-block sw-font-white sw-no-underline cb-submit-btn" routerLink="/register">Register</button>
+        <button type="button" class="btn btn-success btn-lg btn-block sw-no-underline" routerLink="/register">Register</button>
 
     </form>
   </div>
+
+</body>

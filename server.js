@@ -63,6 +63,7 @@ const server = http.createServer(app);
 //import to user service.server 
 require('./server/app')(app);
 
+
 // For Build: Catch all other routes and return the index file -- BUILDING
 app.get('*', function (req, res) {
   res.sendFile(path.join(__dirname, 'dist/index.html'));
